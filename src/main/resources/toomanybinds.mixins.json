@@ -4,6 +4,7 @@
   "package": "dzwdz.toomanybinds.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "KeyBindingMixin"
   ],
   "client": [
   ],
