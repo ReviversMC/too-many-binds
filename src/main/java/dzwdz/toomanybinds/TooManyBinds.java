@@ -8,9 +8,14 @@ import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
 public class TooManyBinds implements ModInitializer {
+    public static ModConfig config;
+
     private static KeyBinding launcherKey;
+
     @Override
     public void onInitialize() {
+        config = new ModConfig();
+
         launcherKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.toomanybinds.launcher",
                 InputUtil.Type.KEYSYM,
@@ -20,7 +25,6 @@ public class TooManyBinds implements ModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (launcherKey.wasPressed()) client.openScreen(new LauncherScreen());
-
         });
     }
 }

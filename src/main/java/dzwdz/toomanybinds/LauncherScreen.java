@@ -43,11 +43,17 @@ public class LauncherScreen extends Screen {
         super.render(matrices, mouseX, mouseY, delta);
     }
 
+    public void switchSelection(int by) {
+        selected += by;
+        int totalCompletions = completion.getSuggestions().size();
+        if (totalCompletions != 0)
+            selected = (selected + totalCompletions) % totalCompletions;
+    }
+
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        // todo the up/down switching is buggy
-        if (keyCode == GLFW.GLFW_KEY_UP) selected--;
-        else if (keyCode == GLFW.GLFW_KEY_DOWN) selected++;
+        if (keyCode == GLFW.GLFW_KEY_UP) switchSelection(-1);
+        else if (keyCode == GLFW.GLFW_KEY_DOWN) switchSelection(1);
         else if (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER) {
             List<BindSuggestion> suggestions = completion.getSuggestions();
             if (suggestions.size() > selected)
@@ -56,9 +62,6 @@ public class LauncherScreen extends Screen {
             return true;
         }
 
-        int totalCompletions = completion.getSuggestions().size();
-        if (totalCompletions != 0)
-            selected %= totalCompletions;
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
