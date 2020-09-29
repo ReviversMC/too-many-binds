@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "toomanybinds",
+  "version": "${version}",
+  "name": "Too Many Binds",
+  "description": "",
+  "authors": [
+    "dzwdz"
+  ],
+  "contact": {},
+  "license": "MPL-2.0",
+  "icon": "assets/toomanybinds/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "dzwdz.toomanybinds.TooManyBinds"
+    ]
+  },
+  "mixins": [
+    "toomanybinds.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.10.0+build.208",
+    "fabric": "*",
+    "minecraft": "1.16.3"
+  }
+}
