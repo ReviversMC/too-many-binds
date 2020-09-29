@@ -9,6 +9,7 @@ import net.minecraft.client.util.NarratorManager;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class LauncherScreen extends Screen {
     protected TextFieldWidget textField;
     protected LauncherCompletion completion;
     protected int selected = 0;
-    public int w = 200;
+    public int w = 250;
     public int lineHeight = 12;
 
     protected LauncherScreen() {
@@ -41,6 +42,9 @@ public class LauncherScreen extends Screen {
         for (Map.Entry<String, KeyBinding> suggestion : suggestions) {
             Text t = new LiteralText(suggestion.getKey());
             drawTextWithShadow(matrices, textRenderer, t, (width-w)/2, y += lineHeight, i++ == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
+            Text modName = new TranslatableText(suggestion.getValue().getCategory());
+            int offset = textRenderer.getWidth(modName)+2;
+            drawTextWithShadow(matrices, textRenderer, modName, (width+w)/2-offset, y, SUGGESTION_COLOR);
         }
 
         super.render(matrices, mouseX, mouseY, delta);
