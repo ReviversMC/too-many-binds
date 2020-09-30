@@ -1,5 +1,6 @@
 package dzwdz.toomanybinds;
 
+import de.siphalor.amecs.api.PriorityKeyBinding;
 import dzwdz.toomanybinds.mixinterface.KeyBindingMixinterface;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.options.GameOptions;
@@ -45,6 +46,10 @@ public class BindSuggestion {
             });
         } else {
             ((KeyBindingMixinterface) bind).toomanybinds$press();
+            // amecs compat
+            bind.setPressed(true);
+            bind.setPressed(false);
+            if (bind instanceof PriorityKeyBinding) ((PriorityKeyBinding)bind).onPressedPriority();
         }
     }
 }

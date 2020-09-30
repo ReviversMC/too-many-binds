@@ -27,7 +27,7 @@ public class LauncherScreen extends Screen {
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         List<BindSuggestion> suggestions = completion.getSuggestions();
-        fill(matrices, (width-w)/2-1, (height-lineHeight)/2-2, (width+w)/2-1, (height+lineHeight)/2-1 + suggestions.size()*lineHeight, 0xAA000000);
+        fill(matrices, (width-w)/2-1, (height-lineHeight)/2-2, (width+w)/2-1, (height+lineHeight)/2-3 + suggestions.size()*lineHeight, 0xAA000000);
         textField.setSelected(true);
         textField.render(matrices, mouseX, mouseY, delta);
 
@@ -56,9 +56,9 @@ public class LauncherScreen extends Screen {
         else if (keyCode == GLFW.GLFW_KEY_DOWN) switchSelection(1);
         else if (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER) {
             List<BindSuggestion> suggestions = completion.getSuggestions();
+            client.openScreen(null);
             if (suggestions.size() > selected)
                 suggestions.get(selected).execute();
-            client.openScreen(null);
             return true;
         }
 

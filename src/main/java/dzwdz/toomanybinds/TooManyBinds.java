@@ -19,7 +19,7 @@ public class TooManyBinds implements ModInitializer {
         launcherKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.toomanybinds.launcher",
                 InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_L,
+                GLFW.GLFW_KEY_H,
                 "category.toomanybinds"
         ));
 

@@ -9,6 +9,7 @@ public class LauncherCompletion {
     private static final Set<String> blacklist = new HashSet<String>(Arrays.asList(
             // pointless
             "key.use",
+            "key.toomanybinds.launcher",
 
             // don't work
             "key.attack",
