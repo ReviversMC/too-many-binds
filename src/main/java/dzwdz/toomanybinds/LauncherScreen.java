@@ -22,6 +22,7 @@ public class LauncherScreen extends Screen {
     protected LauncherScreen() {
         super(NarratorManager.EMPTY);
         completion = new LauncherCompletion();
+        completion.updateSuggestions("");
     }
 
     @Override

@@ -19,7 +19,7 @@ public class BindSuggestion {
         this.bind = bind;
         name = new TranslatableText(bind.getTranslationKey());
         category = new TranslatableText(bind.getCategory());
-        searchable = (name.getString() + category.getString()).toLowerCase();
+        searchable = (name.getString() + " " + category.getString()).toLowerCase();
     }
 
     public boolean matches(String[] searchTerms) {
@@ -32,6 +32,8 @@ public class BindSuggestion {
     public void execute() {
         MinecraftClient mc = MinecraftClient.getInstance();
         GameOptions options = mc.options;
+
+        LauncherCompletion.addToHistory(getId());
 
         // workarounds for keybinds that are handled in dumb, incompatible ways
         if (bind == options.keyFullscreen) {
@@ -51,5 +53,9 @@ public class BindSuggestion {
             bind.setPressed(false);
             if (bind instanceof PriorityKeyBinding) ((PriorityKeyBinding)bind).onPressedPriority();
         }
+    }
+
+    public String getId() {
+        return bind.getTranslationKey();
     }
 }
