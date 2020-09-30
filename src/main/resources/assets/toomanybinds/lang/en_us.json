@@ -1,4 +1,8 @@
 {
   "category.toomanybinds": "Too Many Binds",
-  "key.toomanybinds.launcher": "Bind Launcher"
+  "key.toomanybinds.launcher": "Bind Launcher",
+
+  "text.autoconfig.toomanybinds.title": "Too Many Binds",
+  "text.autoconfig.toomanybinds.option.hideBoundKeys": "Only show unassigned binds",
+  "text.autoconfig.toomanybinds.option.maxSuggestions": "Max suggestion count"
 }

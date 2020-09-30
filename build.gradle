@@ -7,7 +7,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = project.archives_base_name
-version = project.mod_version
+version = "${project.mod_version}+${project.minecraft_version}"
 group = project.maven_group
 
 repositories {
@@ -27,6 +27,18 @@ dependencies {
     // You may need to force-disable transitiveness on them.
     modImplementation "de.siphalor:amecsapi-1.16:1+"
     include "de.siphalor:amecsapi-1.16:1+"
+
+    modApi("me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig1u_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+    include "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig1u_version}"
+
+    modApi("me.shedaniel.cloth:config-2:${project.clothconfig_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+    include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
+
+    modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
 }
 
 processResources {

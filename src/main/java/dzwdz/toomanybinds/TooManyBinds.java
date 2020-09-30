@@ -1,5 +1,7 @@
 package dzwdz.toomanybinds;
 
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -15,7 +17,8 @@ public class TooManyBinds implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        config = new ModConfig();
+        AutoConfig.register(ModConfig.class, JanksonConfigSerializer::new);
+        config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
         launcherKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.toomanybinds.launcher",

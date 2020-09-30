@@ -43,7 +43,7 @@ public class LauncherCompletion {
         all = new LinkedList<>();
         currentSuggestions = new ArrayList<>();
         for (KeyBinding bind : MinecraftClient.getInstance().options.keysAll) {
-            if ((bind.isUnbound() && TooManyBinds.config.hideBoundKeys) || !blacklist.contains(bind.getTranslationKey()))
+            if ((bind.isUnbound() || !TooManyBinds.config.hideBoundKeys) && !blacklist.contains(bind.getTranslationKey()))
                 all.add(new BindSuggestion(bind));
         }
         for (String s : Lists.reverse(history)) {
@@ -65,7 +65,7 @@ public class LauncherCompletion {
         for (BindSuggestion bind : all) {
             if (bind.matches(terms)) {
                 currentSuggestions.add(bind);
-                if (currentSuggestions.size() >= 5) return;
+                if (currentSuggestions.size() >= TooManyBinds.config.maxSuggestions) return;
             }
         }
     }
