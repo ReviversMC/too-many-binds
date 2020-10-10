@@ -1,4 +1,4 @@
-package dzwdz.toomanybinds;
+package dzwdz.toomanybinds.autocompletion;
 
 import de.siphalor.amecs.api.PriorityKeyBinding;
 import dzwdz.toomanybinds.mixinterface.KeyBindingMixinterface;

@@ -1,5 +1,7 @@
 package dzwdz.toomanybinds;
 
+import dzwdz.toomanybinds.autocompletion.LauncherCompletion;
+import dzwdz.toomanybinds.autocompletion.VanillaKeybindSuggestions;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -33,5 +35,7 @@ public class TooManyBinds implements ModInitializer {
 
         ClientLifecycleEvents.CLIENT_STARTED.register(t -> LauncherCompletion.loadHistory());
         ClientLifecycleEvents.CLIENT_STOPPING.register(t -> LauncherCompletion.saveHistory());
+
+        LauncherCompletion.suggestionProviders.add(new VanillaKeybindSuggestions());
     }
 }

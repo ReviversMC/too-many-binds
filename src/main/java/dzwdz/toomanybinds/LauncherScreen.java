@@ -1,5 +1,7 @@
 package dzwdz.toomanybinds;
 
+import dzwdz.toomanybinds.autocompletion.BindSuggestion;
+import dzwdz.toomanybinds.autocompletion.LauncherCompletion;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;

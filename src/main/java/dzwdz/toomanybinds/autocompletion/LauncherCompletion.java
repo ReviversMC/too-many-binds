@@ -1,38 +1,23 @@
-package dzwdz.toomanybinds;
+package dzwdz.toomanybinds.autocompletion;
 
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import com.google.common.io.Files;
+import dzwdz.toomanybinds.TooManyBinds;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.options.KeyBinding;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class LauncherCompletion {
-    private static final Set<String> blacklist = new HashSet<String>(Arrays.asList(
-            // pointless
-            "key.use",
-            "key.toomanybinds.launcher",
-
-            // don't work
-            "key.attack",
-            "key.forward",
-            "key.left",
-            "key.right",
-            "key.back",
-            "key.sneak",
-            "key.sprint",
-            "key.jump",
-
-            // require another key to be pressed ; could work with some changes
-            "key.saveToolbarActivator",
-            "key.loadToolbarActivator"
-    ));
+    public static List<SuggestionProvider> suggestionProviders = new ArrayList<>();
 
     public static List<String> history = new LinkedList<>();
 
@@ -42,10 +27,10 @@ public class LauncherCompletion {
     public LauncherCompletion() {
         all = new LinkedList<>();
         currentSuggestions = new ArrayList<>();
-        for (KeyBinding bind : MinecraftClient.getInstance().options.keysAll) {
-            if ((bind.isUnbound() || !TooManyBinds.config.hideBoundKeys) && !blacklist.contains(bind.getTranslationKey()))
-                all.add(new BindSuggestion(bind));
-        }
+
+        for (SuggestionProvider sp : suggestionProviders)
+            sp.addEntries(all);
+
         for (String s : Lists.reverse(history)) {
             Iterator<BindSuggestion> itr = all.iterator();
             while (itr.hasNext()) {
