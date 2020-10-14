@@ -3,7 +3,6 @@ package dzwdz.toomanybinds.autocompletion;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import com.google.common.io.Files;
-import dzwdz.toomanybinds.TooManyBinds;
 import net.minecraft.client.MinecraftClient;
 
 import java.io.File;
@@ -45,12 +44,12 @@ public class LauncherCompletion {
     }
 
     public void updateSuggestions(String search) {
+        // todo : optimize
         currentSuggestions.clear();
         String[] terms = search.toLowerCase().split(" ");
         for (BindSuggestion bind : all) {
             if (bind.matches(terms)) {
                 currentSuggestions.add(bind);
-                if (currentSuggestions.size() >= TooManyBinds.config.maxSuggestions) return;
             }
         }
     }

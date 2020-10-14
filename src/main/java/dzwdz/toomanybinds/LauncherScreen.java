@@ -18,6 +18,7 @@ public class LauncherScreen extends Screen {
     protected TextFieldWidget textField;
     protected LauncherCompletion completion;
     protected int selected = 0;
+    protected int optionOffset = 0;
     public int w = 250;
     public int lineHeight = 12;
 
@@ -30,15 +31,20 @@ public class LauncherScreen extends Screen {
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         List<BindSuggestion> suggestions = completion.getSuggestions();
-        fill(matrices, (width-w)/2-1, (height-lineHeight)/2-2, (width+w)/2-1, (height+lineHeight)/2-3 + suggestions.size()*lineHeight, 0xAA000000);
+        int lineAmt = Math.min(suggestions.size(), TooManyBinds.config.maxSuggestions);
+        fill(matrices, (width-w)/2-1, (height-lineHeight)/2-2, (width+w)/2-1, (height+lineHeight)/2-3 + lineAmt*lineHeight, 0xAA000000);
         textField.setSelected(true);
         textField.render(matrices, mouseX, mouseY, delta);
 
         int y = (height-lineHeight)/2-1;
-        int i = 0;
-        for (BindSuggestion sg : suggestions) {
-            // todo put this in some other function
-            drawTextWithShadow(matrices, textRenderer, sg.name, (width-w)/2, y += lineHeight, i++ == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
+        for (int i = optionOffset; i - optionOffset < TooManyBinds.config.maxSuggestions; i++) {
+            if (suggestions.size() <= i) break;
+            BindSuggestion sg = suggestions.get(i);
+
+            // draw the bind name
+            drawTextWithShadow(matrices, textRenderer, sg.name, (width-w)/2, y += lineHeight, i == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
+
+            // draw the bind category
             int offset = textRenderer.getWidth(sg.category)+2;
             drawTextWithShadow(matrices, textRenderer, sg.category, (width+w)/2-offset, y, SUGGESTION_COLOR);
         }
@@ -47,10 +53,16 @@ public class LauncherScreen extends Screen {
     }
 
     public void switchSelection(int by) {
-        selected += by;
         int totalCompletions = completion.getSuggestions().size();
-        if (totalCompletions != 0)
-            selected = (selected + totalCompletions) % totalCompletions;
+        if (totalCompletions != 0) {
+            selected = (selected + by + totalCompletions) % totalCompletions;
+            if (optionOffset > selected)
+                optionOffset = selected;
+            else if (optionOffset + TooManyBinds.config.maxSuggestions <= selected)
+                optionOffset = selected - TooManyBinds.config.maxSuggestions + 1;
+        } else {
+            selected = 0;
+        }
     }
 
     @Override
@@ -65,12 +77,14 @@ public class LauncherScreen extends Screen {
             return true;
         }
 
-        return super.keyPressed(keyCode, scanCode, modifiers);
+        return textField.keyPressed(keyCode, scanCode, modifiers)
+                || super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     public void textChangeListener(String s) {
         completion.updateSuggestions(s);
         selected = 0;
+        optionOffset = 0;
     }
 
     @Override
