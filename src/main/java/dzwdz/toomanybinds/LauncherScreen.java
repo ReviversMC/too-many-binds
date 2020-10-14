@@ -15,6 +15,9 @@ public class LauncherScreen extends Screen {
     protected final int SUGGESTION_COLOR = 0x999999;
     protected final int HIGHLIGHT_COLOR = 0xFFFF00;
 
+    public static double offsetX = 0;
+    public static double offsetY = 0;
+
     protected TextFieldWidget textField;
     protected LauncherCompletion completion;
     protected int selected = 0;
@@ -28,25 +31,33 @@ public class LauncherScreen extends Screen {
         completion.updateSuggestions("");
     }
 
+    private int getX() {
+        return width / 2 + (int)offsetX;
+    }
+
+    private int getY() {
+        return height / 2 + (int)offsetY;
+    }
+
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         List<BindSuggestion> suggestions = completion.getSuggestions();
         int lineAmt = Math.min(suggestions.size(), TooManyBinds.config.maxSuggestions);
-        fill(matrices, (width-w)/2-1, (height-lineHeight)/2-2, (width+w)/2-1, (height+lineHeight)/2-3 + lineAmt*lineHeight, 0xAA000000);
+        fill(matrices, getX()-w/2-1, getY()-lineHeight/2-2, getX()+w/2-1, getY()+lineHeight/2-3 + lineAmt*lineHeight, 0xAA000000);
         textField.setSelected(true);
         textField.render(matrices, mouseX, mouseY, delta);
 
-        int y = (height-lineHeight)/2-1;
+        int y = getY()-lineHeight/2-1;
         for (int i = optionOffset; i - optionOffset < TooManyBinds.config.maxSuggestions; i++) {
             if (suggestions.size() <= i) break;
             BindSuggestion sg = suggestions.get(i);
 
             // draw the bind name
-            drawTextWithShadow(matrices, textRenderer, sg.name, (width-w)/2, y += lineHeight, i == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
+            drawTextWithShadow(matrices, textRenderer, sg.name, getX()-w/2, y += lineHeight, i == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
 
             // draw the bind category
             int offset = textRenderer.getWidth(sg.category)+2;
-            drawTextWithShadow(matrices, textRenderer, sg.category, (width+w)/2-offset, y, SUGGESTION_COLOR);
+            drawTextWithShadow(matrices, textRenderer, sg.category, getX()+w/2-offset, y, SUGGESTION_COLOR);
         }
 
         super.render(matrices, mouseX, mouseY, delta);
@@ -90,9 +101,12 @@ public class LauncherScreen extends Screen {
     @Override
     protected void init() {
         client.keyboard.setRepeatEvents(true);
-        textField = new TextFieldWidget(textRenderer, (width-w)/2, (height-lineHeight)/2, w, lineHeight, NarratorManager.EMPTY);
+        String text = "";
+        if (textField != null) text = textField.getText();
+        textField = new TextFieldWidget(textRenderer, getX()-w/2, getY()-lineHeight/2, w, lineHeight, NarratorManager.EMPTY);
         textField.setHasBorder(false);
         textField.setChangedListener(this::textChangeListener);
+        textField.setText(text);
         children.add(textField);
         setInitialFocus(textField);
     }
@@ -104,9 +118,7 @@ public class LauncherScreen extends Screen {
 
     @Override
     public void resize(MinecraftClient client, int width, int height) {
-        String text = textField.getText();
         init(client, width, height);
-        textField.setText(text);
     }
 
     @Override
@@ -117,5 +129,13 @@ public class LauncherScreen extends Screen {
     @Override
     public void removed() {
         client.keyboard.setRepeatEvents(false);
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
+        offsetX += deltaX;
+        offsetY += deltaY;
+        init();
+        return true;
     }
 }
