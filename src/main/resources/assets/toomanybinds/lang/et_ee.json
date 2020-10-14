@@ -1,0 +1,6 @@
+{
+  "key.toomanybinds.launcher": "Otsetee käivitaja",
+  
+  "text.autoconfig.toomanybinds.option.hideBoundKeys": "Kuva ainult määramata otseteid",
+  "text.autoconfig.toomanybinds.option.maxSuggestions": "Maks. soovituste arv"
+}
