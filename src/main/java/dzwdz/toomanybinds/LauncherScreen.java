@@ -2,6 +2,8 @@ package dzwdz.toomanybinds;
 
 import dzwdz.toomanybinds.autocompletion.BindSuggestion;
 import dzwdz.toomanybinds.autocompletion.LauncherCompletion;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1u.ConfigManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -18,6 +20,9 @@ public class LauncherScreen extends Screen {
     public static double offsetX = 0;
     public static double offsetY = 0;
 
+    private int baseX;
+    private int baseY;
+
     protected TextFieldWidget textField;
     protected LauncherCompletion completion;
     protected int selected = 0;
@@ -29,35 +34,47 @@ public class LauncherScreen extends Screen {
         super(NarratorManager.EMPTY);
         completion = new LauncherCompletion();
         completion.updateSuggestions("");
+        offsetX = TooManyBinds.config.launcherX;
+        offsetY = TooManyBinds.config.launcherY;
+    }
+
+
+    // this is awful :)
+    private double clampX(double x) {
+        return Math.max(0, Math.min(x, width - w));
+    }
+
+    private double clampY(double y) {
+        return Math.max(0, Math.min(y, height - lineHeight * (TooManyBinds.config.maxSuggestions + 1)));
     }
 
     private int getX() {
-        return width / 2 + (int)offsetX;
+        return (int)clampX(baseX + offsetX);
     }
 
     private int getY() {
-        return height / 2 + (int)offsetY;
+        return (int)clampY(baseY + offsetY);
     }
 
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         List<BindSuggestion> suggestions = completion.getSuggestions();
         int lineAmt = Math.min(suggestions.size(), TooManyBinds.config.maxSuggestions);
-        fill(matrices, getX()-w/2-1, getY()-lineHeight/2-2, getX()+w/2-1, getY()+lineHeight/2-3 + lineAmt*lineHeight, 0xAA000000);
+        fill(matrices, getX()-1, getY()-1, getX()+w-1, getY()+lineHeight-2 + lineAmt*lineHeight, 0xAA000000);
         textField.setSelected(true);
         textField.render(matrices, mouseX, mouseY, delta);
 
-        int y = getY()-lineHeight/2-1;
+        int y = getY();
         for (int i = optionOffset; i - optionOffset < TooManyBinds.config.maxSuggestions; i++) {
             if (suggestions.size() <= i) break;
             BindSuggestion sg = suggestions.get(i);
 
             // draw the bind name
-            drawTextWithShadow(matrices, textRenderer, sg.name, getX()-w/2, y += lineHeight, i == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
+            drawTextWithShadow(matrices, textRenderer, sg.name, getX(), y += lineHeight, i == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
 
             // draw the bind category
-            int offset = textRenderer.getWidth(sg.category)+2;
-            drawTextWithShadow(matrices, textRenderer, sg.category, getX()+w/2-offset, y, SUGGESTION_COLOR);
+            int textWidth = textRenderer.getWidth(sg.category)+2;
+            drawTextWithShadow(matrices, textRenderer, sg.category, getX()+w-textWidth, y, SUGGESTION_COLOR);
         }
 
         super.render(matrices, mouseX, mouseY, delta);
@@ -103,12 +120,15 @@ public class LauncherScreen extends Screen {
         client.keyboard.setRepeatEvents(true);
         String text = "";
         if (textField != null) text = textField.getText();
-        textField = new TextFieldWidget(textRenderer, getX()-w/2, getY()-lineHeight/2, w, lineHeight, NarratorManager.EMPTY);
+        textField = new TextFieldWidget(textRenderer, getX(), getY()+1, w, lineHeight, NarratorManager.EMPTY);
         textField.setHasBorder(false);
         textField.setChangedListener(this::textChangeListener);
         textField.setText(text);
         children.add(textField);
         setInitialFocus(textField);
+
+        baseX = (width - w) / 2;
+        baseY = (height - lineHeight) / 2;
     }
 
     @Override
@@ -129,12 +149,26 @@ public class LauncherScreen extends Screen {
     @Override
     public void removed() {
         client.keyboard.setRepeatEvents(false);
+        TooManyBinds.config.launcherX = offsetX;
+        TooManyBinds.config.launcherY = offsetY;
+        ((ConfigManager<ModConfig>)AutoConfig.getConfigHolder(ModConfig.class)).save();
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (button == 1) {
+            offsetX = 0;
+            offsetY = 0;
+            init();
+            return true;
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
     }
 
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
-        offsetX += deltaX;
-        offsetY += deltaY;
+        offsetX = clampX(offsetX + deltaX + baseX) - baseX;
+        offsetY = clampY(offsetY + deltaY + baseY) - baseY;
         init();
         return true;
     }
