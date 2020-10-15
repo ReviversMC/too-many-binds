@@ -13,4 +13,6 @@ public class ModConfig implements ConfigData {
     public double launcherX = 0;
     @ConfigEntry.Gui.Excluded
     public double launcherY = 0;
+
+    public double bgOpacity = 0.7;
 }
