@@ -172,4 +172,14 @@ public class LauncherScreen extends Screen {
         init();
         return true;
     }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (Math.abs(offsetX) + Math.abs(offsetY) < 15) {
+            offsetX = 0;
+            offsetY = 0;
+            init();
+        }
+        return false;
+    }
 }
