@@ -118,6 +118,9 @@ public class LauncherScreen extends Screen {
 
     @Override
     protected void init() {
+        baseX = (width - w) / 2;
+        baseY = (height - lineHeight) / 2;
+
         client.keyboard.setRepeatEvents(true);
         String text = "";
         if (textField != null) text = textField.getText();
@@ -127,9 +130,6 @@ public class LauncherScreen extends Screen {
         textField.setText(text);
         children.add(textField);
         setInitialFocus(textField);
-
-        baseX = (width - w) / 2;
-        baseY = (height - lineHeight) / 2;
     }
 
     @Override
