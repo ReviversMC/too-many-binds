@@ -19,6 +19,7 @@ public class LauncherCompletion {
     public static List<SuggestionProvider> suggestionProviders = new ArrayList<>();
 
     public static List<String> history = new LinkedList<>();
+    public static List<String> favorites = new LinkedList<>();
 
     private List<BindSuggestion> all;
     private List<BindSuggestion> currentSuggestions;
@@ -30,17 +31,26 @@ public class LauncherCompletion {
         for (SuggestionProvider sp : suggestionProviders)
             sp.addEntries(all);
 
+        List<BindSuggestion> tempFavorites = new LinkedList<>();
+
         for (String s : Lists.reverse(history)) {
             Iterator<BindSuggestion> itr = all.iterator();
             while (itr.hasNext()) {
                 BindSuggestion bs = itr.next();
                 if (bs.getId().equals(s)) {
                     itr.remove();
-                    all.add(0, bs);
+                    if (favorites.contains(s)) {
+                        bs.favorite = true;
+                        tempFavorites.add(bs);
+                    } else {
+                        all.add(0, bs);
+                    }
                     break;
                 }
             }
         }
+
+        all.addAll(0, tempFavorites);
     }
 
     public void updateSuggestions(String search) {
@@ -58,28 +68,47 @@ public class LauncherCompletion {
         return currentSuggestions;
     }
 
+    public static void toggleFavorite(BindSuggestion bs) {
+        bs.favorite ^= true;
+        if (bs.favorite) {
+            favorites.add(bs.getId());
+            history.add(bs.getId());
+        } else {
+            favorites.remove(bs.getId());
+        }
+    }
+
     public static void addToHistory(String string) {
         history.remove(string);
         history.add(0, string);
     }
 
-    private static File getHistoryFile() {
-        return new File(MinecraftClient.getInstance().runDirectory, "toomanybinds_history.txt");
+    private static File getFile(String suffix) {
+        return new File(MinecraftClient.getInstance().runDirectory, "toomanybinds_" + suffix + ".txt");
     }
 
-    public static void loadHistory() {
+    public static void loadData() {
         history.clear();
+        favorites.clear();
         try {
-            Files.newReader(getHistoryFile(), Charsets.UTF_8).lines().forEach(history::add);
+            Files.newReader(getFile("history"), Charsets.UTF_8).lines().forEach(history::add);
+            Files.newReader(getFile("favorites"), Charsets.UTF_8).lines().forEach(favorites::add);
         } catch (Throwable ignored) {}
     }
 
-    public static void saveHistory() {
+    public static void saveData() {
         try {
             PrintWriter printWriter = new PrintWriter(
-                    new OutputStreamWriter(new FileOutputStream(getHistoryFile()), StandardCharsets.UTF_8)
+                    new OutputStreamWriter(new FileOutputStream(getFile("history")), StandardCharsets.UTF_8)
             );
             for (String s : history)
+                printWriter.println(s);
+            printWriter.close();
+
+            printWriter = new PrintWriter(
+                    new OutputStreamWriter(new FileOutputStream(getFile("favorites")), StandardCharsets.UTF_8)
+            );
+            for (String s : favorites)
                 printWriter.println(s);
             printWriter.close();
         } catch (Throwable ignored) {}

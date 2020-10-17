@@ -15,7 +15,8 @@ import org.lwjgl.glfw.GLFW;
 public class TooManyBinds implements ModInitializer {
     public static ModConfig config;
 
-    private static KeyBinding launcherKey;
+    public static KeyBinding launcherKey;
+    public static KeyBinding favoriteKey;
 
     @Override
     public void onInitialize() {
@@ -28,13 +29,19 @@ public class TooManyBinds implements ModInitializer {
                 GLFW.GLFW_KEY_H,
                 "category.toomanybinds"
         ));
+        favoriteKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.toomanybinds.favorite",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_F4,
+                "category.toomanybinds"
+        ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (launcherKey.wasPressed()) client.openScreen(new LauncherScreen());
         });
 
-        ClientLifecycleEvents.CLIENT_STARTED.register(t -> LauncherCompletion.loadHistory());
-        ClientLifecycleEvents.CLIENT_STOPPING.register(t -> LauncherCompletion.saveHistory());
+        ClientLifecycleEvents.CLIENT_STARTED.register(t -> LauncherCompletion.loadData());
+        ClientLifecycleEvents.CLIENT_STOPPING.register(t -> LauncherCompletion.saveData());
 
         LauncherCompletion.suggestionProviders.add(new VanillaKeybindSuggestions());
     }

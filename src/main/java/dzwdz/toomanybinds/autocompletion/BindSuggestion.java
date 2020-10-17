@@ -14,6 +14,7 @@ public class BindSuggestion {
     public Text category;
     public KeyBinding bind;
     private String searchable;
+    public boolean favorite = false;
 
     public BindSuggestion(KeyBinding bind) {
         this.bind = bind;

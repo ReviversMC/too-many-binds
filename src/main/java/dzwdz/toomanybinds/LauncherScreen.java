@@ -70,8 +70,14 @@ public class LauncherScreen extends Screen {
             if (suggestions.size() <= i) break;
             BindSuggestion sg = suggestions.get(i);
 
+            y += lineHeight;
+
+            if (sg.favorite) {
+                fill(matrices, getX()-3, y-2, getX()-1, y+lineHeight-2, HIGHLIGHT_COLOR | bgColor);
+            }
+
             // draw the bind name
-            drawTextWithShadow(matrices, textRenderer, sg.name, getX(), y += lineHeight, i == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
+            drawTextWithShadow(matrices, textRenderer, sg.name, getX(), y, i == selected ? HIGHLIGHT_COLOR : SUGGESTION_COLOR);
 
             // draw the bind category
             int textWidth = textRenderer.getWidth(sg.category)+2;
@@ -96,9 +102,19 @@ public class LauncherScreen extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (keyCode == GLFW.GLFW_KEY_UP) switchSelection(-1);
-        else if (keyCode == GLFW.GLFW_KEY_DOWN) switchSelection(1);
-        else if (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER) {
+        if (TooManyBinds.favoriteKey.matchesKey(keyCode, scanCode)) {
+            List<BindSuggestion> suggestions = completion.getSuggestions();
+            if (suggestions.size() > selected) {
+                LauncherCompletion.toggleFavorite(suggestions.get(selected));
+                return true;
+            }
+        } else if (keyCode == GLFW.GLFW_KEY_UP) {
+            switchSelection(-1);
+            return true;
+        } else if (keyCode == GLFW.GLFW_KEY_DOWN) {
+            switchSelection(1);
+            return true;
+        } else if (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER) {
             List<BindSuggestion> suggestions = completion.getSuggestions();
             client.openScreen(null);
             if (suggestions.size() > selected)

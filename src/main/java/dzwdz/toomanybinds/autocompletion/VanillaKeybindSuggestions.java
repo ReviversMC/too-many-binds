@@ -14,6 +14,7 @@ public class VanillaKeybindSuggestions implements SuggestionProvider {
             // pointless
             "key.use",
             "key.toomanybinds.launcher",
+            "key.toomanybinds.favorite",
 
             // don't work
             "key.attack",
