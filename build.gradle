@@ -11,7 +11,17 @@ version = "${project.mod_version}+${project.minecraft_version}"
 group = project.maven_group
 
 repositories {
-    maven { url "https://maven.siphalor.de/" }
+    maven {
+        url "https://maven.shedaniel.me/"
+    }
+    maven {
+        name 'TerraformersMC'
+        url 'https://maven.terraformersmc.com/releases/'
+    }
+    maven {
+        name "Siphalor's Maven"
+        url "https://maven.siphalor.de/"
+    }
 }
 
 dependencies {
@@ -23,20 +33,16 @@ dependencies {
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
-    modImplementation "de.siphalor:amecsapi-1.16:1+"
-    include "de.siphalor:amecsapi-1.16:1+"
+    include modImplementation("de.siphalor:amecsapi-1.16:1+")
 
-    modApi("me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig1u_version}") {
+    modApi("com.terraformersmc:modmenu:${project.modmenu_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
-    include "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig1u_version}"
 
-    modApi("me.shedaniel.cloth:config-2:${project.clothconfig_version}") {
+    modApi("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
-    include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
 
-    modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
 }
 
 processResources {

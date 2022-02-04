@@ -2,8 +2,8 @@ package dzwdz.toomanybinds;
 
 import dzwdz.toomanybinds.autocompletion.BindSuggestion;
 import dzwdz.toomanybinds.autocompletion.LauncherCompletion;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1u.ConfigManager;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.ConfigManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -168,7 +168,7 @@ public class LauncherScreen extends Screen {
         client.keyboard.setRepeatEvents(false);
         TooManyBinds.config.launcherX = offsetX;
         TooManyBinds.config.launcherY = offsetY;
-        ((ConfigManager<ModConfig>)AutoConfig.getConfigHolder(ModConfig.class)).save();
+        ((ConfigManager<ModConfig>) AutoConfig.getConfigHolder(ModConfig.class)).save();
     }
 
     @Override
