@@ -116,7 +116,7 @@ public class LauncherScreen extends Screen {
             return true;
         } else if (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER) {
             List<BindSuggestion> suggestions = completion.getSuggestions();
-            client.openScreen(null);
+            client.setScreen(null);
             if (suggestions.size() > selected)
                 suggestions.get(selected).execute();
             return true;
@@ -144,7 +144,7 @@ public class LauncherScreen extends Screen {
         textField.setDrawsBackground(false);
         textField.setChangedListener(this::textChangeListener);
         textField.setText(text);
-        children.add(textField);
+        addSelectableChild(textField);
         setInitialFocus(textField);
     }
 

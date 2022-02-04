@@ -5,7 +5,7 @@ import dzwdz.toomanybinds.mixinterface.KeyBindingMixinterface;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.ScreenshotUtils;
+import net.minecraft.client.util.ScreenshotRecorder;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
@@ -42,7 +42,7 @@ public class BindSuggestion {
             mc.options.fullscreen = mc.getWindow().isFullscreen();
             mc.options.write();
         } else if (bind == options.keyScreenshot) {
-            ScreenshotUtils.saveScreenshot(mc.runDirectory, mc.getWindow().getFramebufferWidth(), mc.getWindow().getFramebufferHeight(), mc.getFramebuffer(), (text) -> {
+            ScreenshotRecorder.saveScreenshot(mc.runDirectory, mc.getFramebuffer(), (text) -> {
                 mc.execute(() -> {
                     mc.inGameHud.getChatHud().addMessage(text);
                 });

@@ -37,7 +37,7 @@ public class TooManyBinds implements ModInitializer {
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (launcherKey.wasPressed()) client.openScreen(new LauncherScreen());
+            if (launcherKey.wasPressed()) client.setScreen(new LauncherScreen());
         });
 
         ClientLifecycleEvents.CLIENT_STARTED.register(t -> LauncherCompletion.loadData());
