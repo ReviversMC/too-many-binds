@@ -2,7 +2,7 @@ package dzwdz.toomanybinds.autocompletion;
 
 import dzwdz.toomanybinds.TooManyBinds;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.options.KeyBinding;
+import net.minecraft.client.option.KeyBinding;
 
 import java.util.Arrays;
 import java.util.HashSet;

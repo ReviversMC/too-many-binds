@@ -62,7 +62,7 @@ public class LauncherScreen extends Screen {
         int lineAmt = Math.min(suggestions.size(), TooManyBinds.config.maxSuggestions);
         int bgColor = (int)Math.round(TooManyBinds.config.bgOpacity * 255) * 0x1000000;
         fill(matrices, getX()-1, getY()-1, getX()+w-1, getY()+lineHeight-2 + lineAmt*lineHeight, bgColor);
-        textField.setSelected(true);
+        textField.setTextFieldFocused(true);
         textField.render(matrices, mouseX, mouseY, delta);
 
         int y = getY();
@@ -141,7 +141,7 @@ public class LauncherScreen extends Screen {
         String text = "";
         if (textField != null) text = textField.getText();
         textField = new TextFieldWidget(textRenderer, getX(), getY()+1, w, lineHeight, NarratorManager.EMPTY);
-        textField.setHasBorder(false);
+        textField.setDrawsBackground(false);
         textField.setChangedListener(this::textChangeListener);
         textField.setText(text);
         children.add(textField);
