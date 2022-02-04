@@ -5,7 +5,8 @@
   "name": "Too Many Binds",
   "description": "Solve the keybind problem, once and for all.",
   "authors": [
-    "dzwdz"
+      "dzwdz",
+      "NebelNidas"
   ],
   "contact": {
     "sources": "https://github.com/dzwdz/toomanybinds",
@@ -27,7 +28,7 @@
     "toomanybinds.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.10.0+build.208",
+    "fabricloader": ">=0.12.9",
     "fabric": "*",
     "minecraft": "1.16.x"
   },
