@@ -69,9 +69,7 @@ java {
 }
 
 jar {
-    from("LICENSE") {
-        rename { "${it}_${project.mod_id}" }
-    }
+    from "LICENSE"
 }
 
 // configure the maven publication
