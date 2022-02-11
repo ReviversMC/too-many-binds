@@ -1,7 +1,7 @@
-package dzwdz.toomanybinds;
+package com.github.reviversmc.toomanybinds;
 
-import dzwdz.toomanybinds.autocompletion.BindSuggestion;
-import dzwdz.toomanybinds.autocompletion.LauncherCompletion;
+import com.github.reviversmc.toomanybinds.autocompletion.BindSuggestion;
+import com.github.reviversmc.toomanybinds.autocompletion.LauncherCompletion;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigManager;
 import net.minecraft.client.MinecraftClient;

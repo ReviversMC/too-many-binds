@@ -1,4 +1,4 @@
-package dzwdz.toomanybinds.autocompletion;
+package com.github.reviversmc.toomanybinds.autocompletion;
 
 import java.util.List;
 

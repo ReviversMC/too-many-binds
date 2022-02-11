@@ -9,8 +9,8 @@
       "NebelNidas"
   ],
   "contact": {
-    "sources": "https://github.com/dzwdz/toomanybinds",
-    "issues": "https://github.com/dzwdz/toomanybinds/issues",
+    "sources": "https://github.com/ReviversMC/toomanybinds",
+    "issues": "https://github.com/ReviversMC/toomanybinds/issues",
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/too-many-binds"
   },
   "license": "MPL-2.0",
@@ -18,10 +18,10 @@
   "environment": "client",
   "entrypoints": {
     "main": [
-      "dzwdz.toomanybinds.TooManyBinds"
+      "com.github.reviversmc.toomanybinds.TooManyBinds"
     ],
     "modmenu": [
-      "dzwdz.toomanybinds.ModMenuIntegration"
+      "com.github.reviversmc.toomanybinds.ModMenuIntegration"
     ]
   },
   "mixins": [

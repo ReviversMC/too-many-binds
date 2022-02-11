@@ -1,6 +1,6 @@
-package dzwdz.toomanybinds.autocompletion;
+package com.github.reviversmc.toomanybinds.autocompletion;
 
-import dzwdz.toomanybinds.TooManyBinds;
+import com.github.reviversmc.toomanybinds.TooManyBinds;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 

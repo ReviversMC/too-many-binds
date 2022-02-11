@@ -1,4 +1,4 @@
-package dzwdz.toomanybinds.autocompletion;
+package com.github.reviversmc.toomanybinds.autocompletion;
 
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
