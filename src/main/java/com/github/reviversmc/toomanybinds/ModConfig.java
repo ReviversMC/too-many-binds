@@ -1,4 +1,4 @@
-package dzwdz.toomanybinds;
+package com.github.reviversmc.toomanybinds;
 
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;

@@ -1,4 +1,4 @@
-package dzwdz.toomanybinds.mixinterface;
+package com.github.reviversmc.toomanybinds.mixinterface;
 
 public interface KeyBindingMixinterface {
     void toomanybinds$press();

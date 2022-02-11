@@ -1,7 +1,7 @@
-package dzwdz.toomanybinds.autocompletion;
+package com.github.reviversmc.toomanybinds.autocompletion;
 
 import de.siphalor.amecs.api.PriorityKeyBinding;
-import dzwdz.toomanybinds.mixinterface.KeyBindingMixinterface;
+import com.github.reviversmc.toomanybinds.mixinterface.KeyBindingMixinterface;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
