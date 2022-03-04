@@ -37,11 +37,11 @@ public class BindSuggestion {
         LauncherCompletion.addToHistory(getId());
 
         // workarounds for keybinds that are handled in dumb, incompatible ways
-        if (bind == options.keyFullscreen) {
+        if (bind == options.fullscreenKey) {
             mc.getWindow().toggleFullscreen();
             mc.options.fullscreen = mc.getWindow().isFullscreen();
             mc.options.write();
-        } else if (bind == options.keyScreenshot) {
+        } else if (bind == options.screenshotKey) {
             ScreenshotRecorder.saveScreenshot(mc.runDirectory, mc.getFramebuffer(), (text) -> {
                 mc.execute(() -> {
                     mc.inGameHud.getChatHud().addMessage(text);

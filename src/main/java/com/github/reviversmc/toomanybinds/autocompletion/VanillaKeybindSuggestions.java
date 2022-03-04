@@ -32,7 +32,7 @@ public class VanillaKeybindSuggestions implements SuggestionProvider {
     ));
 
     public void addEntries(List<BindSuggestion> binds) {
-        for (KeyBinding bind : MinecraftClient.getInstance().options.keysAll) {
+        for (KeyBinding bind : MinecraftClient.getInstance().options.allKeys) {
             if ((bind.isUnbound() || !TooManyBinds.config.hideBoundKeys) && !blacklist.contains(bind.getTranslationKey()))
                 binds.add(new BindSuggestion(bind));
         }
