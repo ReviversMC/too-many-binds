@@ -7,7 +7,6 @@ import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.ScreenshotRecorder;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 
 public class BindSuggestion {
     public Text name;
@@ -18,8 +17,8 @@ public class BindSuggestion {
 
     public BindSuggestion(KeyBinding bind) {
         this.bind = bind;
-        name = new TranslatableText(bind.getTranslationKey());
-        category = new TranslatableText(bind.getCategory());
+        name = Text.translatable(bind.getTranslationKey());
+        category = Text.translatable(bind.getCategory());
         searchable = (name.getString() + " " + category.getString()).toLowerCase();
     }
 
@@ -38,8 +37,7 @@ public class BindSuggestion {
 
         // workarounds for keybinds that are handled in dumb, incompatible ways
         if (bind == options.fullscreenKey) {
-            mc.getWindow().toggleFullscreen();
-            mc.options.fullscreen = mc.getWindow().isFullscreen();
+            mc.options.getFullscreen().setValue(!mc.getWindow().isFullscreen());
             mc.options.write();
         } else if (bind == options.screenshotKey) {
             ScreenshotRecorder.saveScreenshot(mc.runDirectory, mc.getFramebuffer(), (text) -> {
