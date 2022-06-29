@@ -1,0 +1,38 @@
+{
+    "schemaVersion": 1,
+    "id": "toomanybinds-core",
+    "version": "${version}",
+    "name": "Too Many Binds Core",
+    "description": "Cross Minecraft version compatible components of Too Many Binds",
+    "authors": [
+        "NebelNidas",
+        "dzwdz"
+    ],
+    "contact": {
+        "sources": "https://github.com/ReviversMC/too-many-binds",
+        "issues": "https://github.com/ReviversMC/too-many-binds/issues",
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/too-many-binds"
+    },
+    "license": "MPL-2.0",
+    "icon": "assets/toomanybinds/icon.png",
+    "environment": "client",
+    "mixins": [
+        "toomanybinds.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.12.9",
+        "fabric-api-base": "*",
+        "fabric-lifecycle-events-v1": "*",
+        "fabric-key-binding-api-v1": "*",
+        "cloth-config2": ">=4.12.41",
+        "minecraft": ">=1.16"
+    },
+    "custom": {
+        "modmenu": {
+            "badges": ["library"],
+            "parent": {
+                "id": "toomanybinds"
+            }
+        }
+    }
+}

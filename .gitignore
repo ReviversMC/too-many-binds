@@ -1,23 +1,19 @@
 # gradle
-
 .gradle/
 build/
 out/
 classes/
 
 # eclipse
-
 *.launch
 
 # idea
-
 .idea/
 *.iml
 *.ipr
 *.iws
 
 # vscode
-
 .settings/
 .vscode/*
 !.vscode/extensions.json
@@ -26,9 +22,7 @@ bin/
 .project
 
 # macos
-
 *.DS_Store
 
 # fabric
-
 run/

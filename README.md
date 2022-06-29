@@ -1,3 +1,5 @@
+<img height="70" align="right" src="./assets/toomanybinds-icon.png">
+
 # Too Many Binds
 [![CurseForge downloads](https://cf.way2muchnoise.eu/too-many-binds.svg)](https://www.curseforge.com/minecraft/mc-mods/too-many-binds)
 [![CurseForge versions](https://cf.way2muchnoise.eu/versions/too-many-binds.svg)](https://www.curseforge.com/minecraft/mc-mods/too-many-binds)
