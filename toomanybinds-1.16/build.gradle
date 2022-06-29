@@ -53,6 +53,7 @@ dependencies {
         modRuntimeOnly "maven.modrinth:lazydfu:${project.lazydfu_version_1_16}"
         modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version_1_16}"
         modRuntimeOnly "maven.modrinth:lithium:${project.lithium_version_1_16}"
+        modRuntimeOnly "maven.modrinth:phosphor:${project.phosphor_version_1_16}"
         modRuntimeOnly "maven.modrinth:smoothboot-fabric:${project.smoothboot_version_1_16}"
         modRuntimeOnly "curse.maven:no-fade-452768:${project.no_fade_version_1_16}"
     }
