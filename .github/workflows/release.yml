@@ -49,8 +49,8 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.16/build/libs/!(*-@(dev|sources)).jar
-          name: Too Many Binds 0.3.1 for 1.16
-          version: 0.3.1+1.16
+          name: Too Many Binds 0.3.2 for 1.16
+          version: 0.3.2+1.16
           version-type: release
           loaders: |
             fabric
@@ -68,8 +68,8 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.17/build/libs/!(*-@(dev|sources)).jar
-          name: Too Many Binds 0.3.1 for 1.17
-          version: 0.3.1+1.17
+          name: Too Many Binds 0.3.2 for 1.17
+          version: 0.3.2+1.17
           version-type: release
           loaders: |
             fabric
@@ -87,8 +87,8 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.18/build/libs/!(*-@(dev|sources)).jar
-          name: Too Many Binds 0.3.1 for 1.18(.1)
-          version: 0.3.1+1.18
+          name: Too Many Binds 0.3.2 for 1.18(.1)
+          version: 0.3.2+1.18
           version-type: release
           loaders: |
             fabric
@@ -106,8 +106,8 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.18.2/build/libs/!(*-@(dev|sources)).jar
-          name: Too Many Binds 0.3.1 for 1.18.2
-          version: 0.3.1+1.18.2
+          name: Too Many Binds 0.3.2 for 1.18.2
+          version: 0.3.2+1.18.2
           version-type: release
           loaders: |
             fabric
@@ -125,8 +125,8 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.19/build/libs/!(*-@(dev|sources)).jar
-          name: Too Many Binds 0.3.1 for 1.19
-          version: 0.3.1+1.19
+          name: Too Many Binds 0.3.2 for 1.19
+          version: 0.3.2+1.19
           version-type: release
           loaders: |
             fabric
