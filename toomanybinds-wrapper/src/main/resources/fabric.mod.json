@@ -18,15 +18,15 @@
     "environment": "client",
     "entrypoints": {
         "main": [
-            "com.github.reviversmc.toomanybinds.TooManyBinds117"
+            "com.github.reviversmc.toomanybinds.TooManyBinds${target_mc_version_concat}"
         ],
         "modmenu": [
             "com.github.reviversmc.toomanybinds.ModMenuIntegration"
         ]
     },
     "depends": {
+        "minecraft": "${target_supported_mc_version_range}",
         "fabricloader": ">=0.12.9",
-        "minecraft": ">=1.18 <=1.18.1",
-        "toomanybinds-core": "*"
+        "toomanybinds-compat-${target_mc_version_dashed}": "*"
     }
 }

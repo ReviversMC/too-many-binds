@@ -26,29 +26,26 @@ jobs:
         uses: gradle/wrapper-validation-action@v1
 
       - name: Build 1.16 project
-        run: ./gradlew :toomanybinds-1.16:build --stacktrace
+        run: ./gradlew :toomanybinds-wrapper:build116 --stacktrace
 
       - name: Build 1.17 project
-        run: ./gradlew :toomanybinds-1.17:build --stacktrace
-
-      - name: Build 1.18 project
-        run: ./gradlew :toomanybinds-1.18:build --stacktrace
+        run: ./gradlew :toomanybinds-wrapper:build117 --stacktrace
 
       - name: Build 1.18.2 project
-        run: ./gradlew :toomanybinds-1.18.2:build --stacktrace
+        run: ./gradlew :toomanybinds-wrapper:build1182 --stacktrace
 
       - name: Build 1.19 project
-        run: ./gradlew :toomanybinds-1.19:build --stacktrace
+        run: ./gradlew :toomanybinds-wrapper:build119 --stacktrace
 
       - name: Publish 1.16 version
         uses: Kir-Antipov/mc-publish@v3.0
         with:
-          modrinth-id: #TODO
+          modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.16/build/libs/!(*-@(dev|sources)).jar
+          files-primary: toomanybinds-wrapper/build/libs/((*+1.16) && !(*-@(dev|sources))).jar
           name: Too Many Binds 0.3.2 for 1.16
           version: 0.3.2+1.16
           version-type: release
@@ -57,18 +54,19 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
+            amecs         | depends
             modmenu       | recommends
 
       - name: Publish 1.17 version
         uses: Kir-Antipov/mc-publish@v3.0
         with:
-          modrinth-id: #TODO
+          modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.17/build/libs/!(*-@(dev|sources)).jar
-          name: Too Many Binds 0.3.2 for 1.17
+          files-primary: toomanybinds-wrapper/build/libs/((*+1.17) && !(*-@(dev|sources))).jar
+          name: Too Many Binds 0.3.2 for 1.17 to 1.18.1
           version: 0.3.2+1.17
           version-type: release
           loaders: |
@@ -76,36 +74,18 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
-            modmenu       | recommends
-
-      - name: Publish 1.18 version
-        uses: Kir-Antipov/mc-publish@v3.0
-        with:
-          modrinth-id: #TODO
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: 412915
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.18/build/libs/!(*-@(dev|sources)).jar
-          name: Too Many Binds 0.3.2 for 1.18(.1)
-          version: 0.3.2+1.18
-          version-type: release
-          loaders: |
-            fabric
-          dependencies: |
-            fabric-api    | depends
-            cloth-config  | depends
+            amecs         | depends
             modmenu       | recommends
 
       - name: Publish 1.18.2 version
         uses: Kir-Antipov/mc-publish@v3.0
         with:
-          modrinth-id: #TODO
+          modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.18.2/build/libs/!(*-@(dev|sources)).jar
+          files-primary: toomanybinds-wrapper/build/libs/((*+1.18.2) && !(*-@(dev|sources))).jar
           name: Too Many Binds 0.3.2 for 1.18.2
           version: 0.3.2+1.18.2
           version-type: release
@@ -114,17 +94,18 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
+            amecs         | depends
             modmenu       | recommends
 
       - name: Publish 1.19 version
         uses: Kir-Antipov/mc-publish@v3.0
         with:
-          modrinth-id: #TODO
+          modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.19/build/libs/!(*-@(dev|sources)).jar
+          files-primary: toomanybinds-wrapper/build/libs/((*+1.19) && !(*-@(dev|sources))).jar
           name: Too Many Binds 0.3.2 for 1.19
           version: 0.3.2+1.19
           version-type: release
@@ -133,5 +114,6 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
+            amecs         | depends
             modmenu       | recommends
 

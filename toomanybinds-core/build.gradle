@@ -23,7 +23,7 @@ dependencies {
     modImplementation(fabricApi.module("fabric-key-binding-api-v1", project.fabric_version_1_16))
 
     // Amecs API
-    modImplementation("de.siphalor:amecsapi-1.16:1+")
+    modImplementation("de.siphalor:amecsapi-1.16:${project.amecs_api_version_1_16}")
 
     // ModMenu integration
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version_1_16}"

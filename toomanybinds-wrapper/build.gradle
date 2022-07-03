@@ -1,0 +1,93 @@
+plugins {
+    id 'fabric-loom' version '0.12-SNAPSHOT'
+    id 'io.github.juuxel.loom-quiltflower' version '1.7.3'
+}
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+
+dependencies {
+    // Random Minecraft version so Loom doesn't complain
+    minecraft "com.mojang:minecraft:${project.minecraft_version_1_19}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings_1_19}:v2"
+
+    // Include core and compat modules
+    include implementation(project(path: ":toomanybinds-1.19", configuration: "namedElements"))
+}
+
+def target_mc_version
+def target_mc_version_concat
+def target_mc_version_dashed
+def target_supported_mc_version_range
+
+task beforeBuild {
+    doLast {
+        target_mc_version_concat = target_mc_version.replace('.', '')
+        target_mc_version_dashed = target_mc_version.replace('.', '-')
+        archivesBaseName = project.archives_base_name
+        def mod_version = project.mod_version as Object
+        version = "${mod_version}+${target_mc_version}"
+    }
+}
+beforeBuild.finalizedBy build
+
+
+task build116 {
+    doLast {
+        target_mc_version = "1.16"
+        target_supported_mc_version_range = "1.16.x"
+    }
+}
+build116.finalizedBy beforeBuild
+
+task build117 {
+    doLast {
+        target_mc_version = "1.17"
+        target_supported_mc_version_range = ">=1.17 <=1.18.1"
+    }
+}
+build117.finalizedBy beforeBuild
+
+task build1182 {
+    doLast {
+        target_mc_version = "1.18.2"
+        target_supported_mc_version_range = "1.18.2"
+    }
+}
+build1182.finalizedBy beforeBuild
+
+task build119 {
+    doLast {
+        target_mc_version = "1.19"
+        target_supported_mc_version_range = ">=1.19"
+    }
+}
+build119.finalizedBy beforeBuild
+
+
+processResources {
+    // Always run, don't used cached versions from old runs
+    outputs.upToDateWhen { false }
+
+    filesMatching("fabric.mod.json") {
+        if (target_mc_version == null) {
+            throw new RuntimeException("Don't run the `build` task directly! Use the individual versions' tasks (`build119` etc.) instead.")
+        }
+        filter {
+            it.replace('${version}', version)
+        }
+        filter {
+            it.replace('${target_mc_version}', target_mc_version)
+        }
+        filter {
+            it.replace('${target_mc_version_concat}', target_mc_version_concat)
+        }
+        filter {
+            it.replace('${target_mc_version_dashed}', target_mc_version_dashed)
+        }
+        filter {
+            it.replace('${target_supported_mc_version_range}', target_supported_mc_version_range)
+        }
+    }
+}

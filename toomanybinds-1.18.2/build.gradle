@@ -15,7 +15,7 @@ apply from: '../common.gradle'
 
 
 dependencies {
-    include api(project(path: ":toomanybinds-1.18", configuration: "namedElements"))
+    include api(project(path: ":toomanybinds-1.17", configuration: "namedElements"))
 
     minecraft "com.mojang:minecraft:${project.minecraft_version_1_18_2}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings_1_18_2}:v2"
@@ -29,10 +29,7 @@ dependencies {
     modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_version_1_18_2}"
 
     // Amecs API
-    include modImplementation("de.siphalor:amecsapi-1.18:${project.amecs_api_version_1_18_2}") {
-        exclude(group: "com.github.astei", module: "lazydfu")
-        exclude(group: "de.siphalor", module: "nmuk-1.18")
-    }
+    modImplementation("de.siphalor:amecsapi-1.18:${project.amecs_api_version_1_18_2}")
 
     // ModMenu integration
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version_1_18_2}"
