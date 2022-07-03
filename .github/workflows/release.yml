@@ -45,7 +45,7 @@ jobs:
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-wrapper/build/libs/((*+1.16) && !(*-@(dev|sources))).jar
+          files-primary: toomanybinds-wrapper/build/libs/*+1.16!(*-@(dev|sources)).jar
           name: Too Many Binds 0.3.2 for 1.16
           version: 0.3.2+1.16
           version-type: release
@@ -65,7 +65,7 @@ jobs:
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-wrapper/build/libs/((*+1.17) && !(*-@(dev|sources))).jar
+          files-primary: toomanybinds-wrapper/build/libs/*+1.17!(*-@(dev|sources)).jar
           name: Too Many Binds 0.3.2 for 1.17 to 1.18.1
           version: 0.3.2+1.17
           version-type: release
@@ -90,7 +90,7 @@ jobs:
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-wrapper/build/libs/((*+1.18.2) && !(*-@(dev|sources))).jar
+          files-primary: toomanybinds-wrapper/build/libs/*+1.18.2!(*-@(dev|sources)).jar
           name: Too Many Binds 0.3.2 for 1.18.2
           version: 0.3.2+1.18.2
           version-type: release
@@ -110,7 +110,7 @@ jobs:
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-wrapper/build/libs/((*+1.19) && !(*-@(dev|sources))).jar
+          files-primary: toomanybinds-wrapper/build/libs/*+1.19!(*-@(dev|sources)).jar
           name: Too Many Binds 0.3.2 for 1.19
           version: 0.3.2+1.19
           version-type: release
