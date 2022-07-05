@@ -38,7 +38,7 @@ jobs:
         run: ./gradlew :toomanybinds-wrapper:build119 --stacktrace
 
       - name: Publish 1.16 version
-        uses: Kir-Antipov/mc-publish@v3.0
+        uses: Kir-Antipov/mc-publish@v3.1
         with:
           modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
@@ -58,7 +58,7 @@ jobs:
             modmenu       | recommends
 
       - name: Publish 1.17 version
-        uses: Kir-Antipov/mc-publish@v3.0
+        uses: Kir-Antipov/mc-publish@v3.1
         with:
           modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
@@ -83,7 +83,7 @@ jobs:
             modmenu       | recommends
 
       - name: Publish 1.18.2 version
-        uses: Kir-Antipov/mc-publish@v3.0
+        uses: Kir-Antipov/mc-publish@v3.1
         with:
           modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
@@ -103,7 +103,7 @@ jobs:
             modmenu       | recommends
 
       - name: Publish 1.19 version
-        uses: Kir-Antipov/mc-publish@v3.0
+        uses: Kir-Antipov/mc-publish@v3.1
         with:
           modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
