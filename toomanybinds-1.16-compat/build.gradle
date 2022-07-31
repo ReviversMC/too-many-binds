@@ -14,6 +14,8 @@ apply from: '../common.gradle'
 
 
 dependencies {
+    include api(project(path: ":toomanybinds-core", configuration: "namedElements"))
+
     minecraft "com.mojang:minecraft:${project.minecraft_version_1_16}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings_1_16}:v2"
 

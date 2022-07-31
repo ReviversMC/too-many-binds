@@ -1,19 +1,32 @@
 {
     "schemaVersion": 1,
-    "id": "toomanybinds-compat-1-19",
+    "id": "toomanybinds",
     "version": "${version}",
-    "name": "Too Many Binds 1.19 Compat",
-    "environment": "client",
-    "depends": {
-        "fabricloader": ">=0.12.9",
-        "toomanybinds-compat-1-18-2": "*"
+    "name": "Too Many Binds",
+    "description": "Solve the keybind problem, once and for all.",
+    "authors": [
+        "NebelNidas",
+        "dzwdz"
+    ],
+    "contact": {
+        "sources": "https://github.com/ReviversMC/too-many-binds",
+        "issues": "https://github.com/ReviversMC/too-many-binds/issues",
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/too-many-binds"
     },
-    "custom": {
-        "modmenu": {
-            "badges": ["library"],
-            "parent": {
-                "id": "toomanybinds"
-            }
-        }
+    "icon": "assets/toomanybinds/icon.png",
+    "license": "MPL-2.0",
+    "environment": "client",
+    "entrypoints": {
+        "main": [
+            "com.github.reviversmc.toomanybinds.TooManyBinds119"
+        ],
+        "modmenu": [
+            "com.github.reviversmc.toomanybinds.ModMenuIntegration"
+        ]
+    },
+    "depends": {
+        "minecraft": ">=1.19",
+        "fabricloader": ">=0.12.9",
+        "toomanybinds-compat-1-19": "*"
     }
 }

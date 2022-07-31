@@ -14,7 +14,15 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
+    directory: "/toomanybinds-1.16-compat"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
     directory: "/toomanybinds-1.17"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/toomanybinds-1.17-compat"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
@@ -22,11 +30,15 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
+    directory: "/toomanybinds-1.18.2-compat"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
     directory: "/toomanybinds-1.19"
     schedule:
       interval: "daily"
   - package-ecosystem: "gradle"
-    directory: "/toomanybinds-wrapper"
+    directory: "/toomanybinds-1.19-compat"
     schedule:
       interval: "daily"
 

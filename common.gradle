@@ -4,6 +4,9 @@ configurations {
     includeTransitive {
         transitive = true
     }
+    modRuntimeOnly {
+        exclude module: "fabric-loader"
+    }
 }
 
 repositories {
