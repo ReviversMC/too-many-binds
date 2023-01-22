@@ -32,7 +32,8 @@ repositories {
         }
     }
     maven {
-        url = "https://mvnrepository.com/"
+        name "Siphalor's Maven"
+        url "https://maven.siphalor.de/"
     }
     maven {
         name = "TerraformersMC"
@@ -42,10 +43,6 @@ repositories {
         url = "https://maven.shedaniel.me/"
     }
     maven {
-        name "Siphalor's Maven"
-        url "https://maven.siphalor.de/"
-    }
-    maven {
         name = "JitPack"
         url = "https://jitpack.io"
     }
@@ -53,6 +50,11 @@ repositories {
         name = "NucleoidMC"
         url = "https://maven.nucleoid.xyz/"
     }
+    /*
+    maven {
+        url = "https://mvnrepository.com/"
+    }
+     */
     mavenCentral()
 }
 

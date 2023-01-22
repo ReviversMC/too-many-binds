@@ -2,8 +2,7 @@ package com.github.reviversmc.toomanybinds;
 
 import net.minecraft.client.gui.widget.TextFieldWidget;
 
-public class LauncherScreen117 extends LauncherScreen {
-
+public class LauncherScreen1193 extends LauncherScreen{
     @Override
     protected void closeScreen() {
         client.setScreen(null);
@@ -13,10 +12,4 @@ public class LauncherScreen117 extends LauncherScreen {
     protected void addTextField(TextFieldWidget textField) {
         addSelectableChild(textField);
     }
-
-    @Override
-    public void removed() {
-        client.keyboard.setRepeatEvents(false);
-    }
-
 }

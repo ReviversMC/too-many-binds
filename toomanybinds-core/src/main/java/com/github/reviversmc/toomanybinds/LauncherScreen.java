@@ -141,7 +141,7 @@ public abstract class LauncherScreen extends Screen {
         baseX = (width - w) / 2;
         baseY = (height - lineHeight) / 2;
 
-        client.keyboard.setRepeatEvents(true);
+        //client.keyboard.setRepeatEvents(true);
         String text = "";
         if (textField != null) text = textField.getText();
         textField = new TextFieldWidget(textRenderer, getX(), getY()+1, w, lineHeight, NarratorManager.EMPTY);
@@ -171,7 +171,6 @@ public abstract class LauncherScreen extends Screen {
 
     @Override
     public void removed() {
-        client.keyboard.setRepeatEvents(false);
         TooManyBinds.config.launcherX = offsetX;
         TooManyBinds.config.launcherY = offsetY;
         ((ConfigManager<ModConfig>) AutoConfig.getConfigHolder(ModConfig.class)).save();
