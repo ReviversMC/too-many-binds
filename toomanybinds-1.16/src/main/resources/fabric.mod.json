@@ -21,7 +21,7 @@
 			"com.github.reviversmc.toomanybinds.TooManyBinds116"
 		],
 		"modmenu": [
-			"com.github.reviversmc.toomanybinds.ModMenuIntegration"
+			"com.github.reviversmc.toomanybinds.integrations.ModMenuIntegration"
 		]
 	},
 	"depends": {

@@ -58,7 +58,7 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
-            amecs         | depends
+            amecs         | recommends
             modmenu       | recommends
 
       - name: Publish 1.17 version
@@ -84,7 +84,7 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
-            amecs         | depends
+            amecs         | recommends
             modmenu       | recommends
 
       - name: Publish 1.18.2 version
@@ -105,7 +105,7 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
-            amecs         | depends
+            amecs         | recommends
             modmenu       | recommends
 
       - name: Publish 1.19 version
@@ -126,7 +126,7 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
-            amecs         | depends
+            amecs         | recommends
             modmenu       | recommends
 
       - name: Publish 1.19.3 version
@@ -147,6 +147,6 @@ jobs:
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends
-            amecs         | depends
+            amecs         | recommends
             modmenu       | recommends
 

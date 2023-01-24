@@ -2,12 +2,13 @@ package com.github.reviversmc.toomanybinds.autocompletion;
 
 import java.util.function.Consumer;
 
-import de.siphalor.amecs.api.PriorityKeyBinding;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.text.Text;
 
+import com.github.reviversmc.toomanybinds.integrations.AmecsIntegration;
 import com.github.reviversmc.toomanybinds.mixinterface.KeyBindingMixinterface;
 
 public abstract class BindSuggestion {
@@ -53,10 +54,13 @@ public abstract class BindSuggestion {
 			});
 		} else {
 			((KeyBindingMixinterface) bind).toomanybinds_press();
-			// amecs compat
 			bind.setPressed(true);
 			bind.setPressed(false);
-			if (bind instanceof PriorityKeyBinding) ((PriorityKeyBinding) bind).onPressedPriority();
+
+			// Amecs compat
+			if (FabricLoader.getInstance().isModLoaded("amecsapi")) {
+				AmecsIntegration.priorityPressIfApplicable(bind);
+			}
 		}
 	}
 
