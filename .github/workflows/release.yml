@@ -49,6 +49,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.16/build/libs/!(*-@(dev|sources)).jar
+          files-secondary: null
           name: 0.3.2 for MC 1.16
           version: 0.3.2+1.16
           version-type: release
@@ -69,6 +70,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.17/build/libs/!(*-@(dev|sources)).jar
+          files-secondary: null
           name: 0.3.2 for MC 1.17 to 1.18.1
           version: 0.3.2+1.17
           version-type: release
@@ -94,6 +96,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.18.2/build/libs/!(*-@(dev|sources)).jar
+          files-secondary: null
           name: 0.3.2 for MC 1.18.2
           version: 0.3.2+1.18.2
           version-type: release
@@ -114,6 +117,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.19/build/libs/!(*-@(dev|sources)).jar
+          files-secondary: null
           name: 0.3.2 for MC 1.19
           version: 0.3.2+1.19
           version-type: release
@@ -134,6 +138,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.19.3/build/libs/!(*-@(dev|sources)).jar
+          files-secondary: null
           name: 0.3.2 for MC 1.19.3
           version: 0.3.2+1.19.3
           version-type: release

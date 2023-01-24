@@ -1,10 +1,10 @@
 {
-  "category.toomanybinds": "Too Many Binds",
-  "key.toomanybinds.launcher": "Bind Launcher",
-  "key.toomanybinds.favorite": "Mark bind as favorite",
+	"category.toomanybinds": "Too Many Binds",
+	"key.toomanybinds.launcher": "Bind Launcher",
+	"key.toomanybinds.favorite": "Mark bind as favorite",
 
-  "text.autoconfig.toomanybinds.title": "Too Many Binds",
-  "text.autoconfig.toomanybinds.option.hideBoundKeys": "Only show unassigned binds",
-  "text.autoconfig.toomanybinds.option.maxSuggestions": "Max suggestion count",
-  "text.autoconfig.toomanybinds.option.bgOpacity": "Background opacity"
+	"text.autoconfig.toomanybinds.title": "Too Many Binds",
+	"text.autoconfig.toomanybinds.option.hideBoundKeys": "Only show unassigned binds",
+	"text.autoconfig.toomanybinds.option.maxSuggestions": "Max suggestion count",
+	"text.autoconfig.toomanybinds.option.bgOpacity": "Background opacity"
 }

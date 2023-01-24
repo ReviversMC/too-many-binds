@@ -1,7 +1,7 @@
 {
-  "key.toomanybinds.launcher": "Otsetee käivitaja",
-  
-  "text.autoconfig.toomanybinds.option.hideBoundKeys": "Kuva ainult määramata otseteid",
-  "text.autoconfig.toomanybinds.option.maxSuggestions": "Maksimaalne soovituste arv",
-  "text.autoconfig.toomanybinds.option.bgOpacity": "Tausta läbipaistvus"
+	"key.toomanybinds.launcher": "Otsetee käivitaja",
+
+	"text.autoconfig.toomanybinds.option.hideBoundKeys": "Kuva ainult määramata otseteid",
+	"text.autoconfig.toomanybinds.option.maxSuggestions": "Maksimaalne soovituste arv",
+	"text.autoconfig.toomanybinds.option.bgOpacity": "Tausta läbipaistvus"
 }

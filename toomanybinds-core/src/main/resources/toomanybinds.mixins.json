@@ -1,12 +1,12 @@
 {
-    "required": true,
-    "minVersion": "0.8",
-    "package": "com.github.reviversmc.toomanybinds.mixin",
-    "compatibilityLevel": "JAVA_8",
-    "client": [
-        "KeyBindingMixin"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+	"required": true,
+	"minVersion": "0.8",
+	"package": "com.github.reviversmc.toomanybinds.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"client": [
+		"KeyBindingMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }

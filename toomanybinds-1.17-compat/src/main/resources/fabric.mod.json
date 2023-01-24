@@ -1,19 +1,19 @@
 {
-    "schemaVersion": 1,
-    "id": "toomanybinds-compat-1-17",
-    "version": "${version}",
-    "name": "Too Many Binds 1.17 Compat",
-    "environment": "client",
-    "depends": {
-        "fabricloader": ">=0.12.9",
-        "toomanybinds-compat-1-16": "*"
-    },
-    "custom": {
-        "modmenu": {
-            "badges": ["library"],
-            "parent": {
-                "id": "toomanybinds"
-            }
-        }
-    }
+	"schemaVersion": 1,
+	"id": "toomanybinds-compat-1-17",
+	"version": "${version}",
+	"name": "Too Many Binds 1.17 Compat",
+	"environment": "client",
+	"depends": {
+		"fabricloader": ">=0.12.9",
+		"toomanybinds-compat-1-16": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"badges": ["library"],
+			"parent": {
+				"id": "toomanybinds"
+			}
+		}
+	}
 }

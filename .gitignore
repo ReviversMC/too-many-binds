@@ -1,28 +1,41 @@
-# gradle
+# ReviversMC gitignore v1.0
+
+# Gradle
 .gradle/
 build/
 out/
 classes/
 
-# eclipse
-*.launch
+# Loom
+run/
+remappedSrc/
+src/main/resources_generated/
 
-# idea
+# IntelliJ Idea
 .idea/
 *.iml
 *.ipr
 *.iws
 
-# vscode
+# Eclipse
+.eclipse/
+*.launch
+
+# VS Code
+.vscode/
 .settings/
-.vscode/*
-!.vscode/extensions.json
 bin/
 .classpath
 .project
 
-# macos
+# Fleet
+.fleet/
+
+# MacOS
 *.DS_Store
 
-# fabric
-run/
+# Java
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
