@@ -50,8 +50,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.16/build/libs/!(*-@(dev|sources)).jar
           files-secondary: null
-          name: 0.3.2 for MC 1.16
-          version: 0.3.2+1.16
+          name: 0.3.3 for MC 1.16
+          version: 0.3.3+1.16
           version-type: release
           loaders: |
             fabric
@@ -71,8 +71,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.17/build/libs/!(*-@(dev|sources)).jar
           files-secondary: null
-          name: 0.3.2 for MC 1.17 to 1.18.1
-          version: 0.3.2+1.17
+          name: 0.3.3 for MC 1.17 to 1.18.1
+          version: 0.3.3+1.17
           version-type: release
           loaders: |
             fabric
@@ -97,8 +97,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.18.2/build/libs/!(*-@(dev|sources)).jar
           files-secondary: null
-          name: 0.3.2 for MC 1.18.2
-          version: 0.3.2+1.18.2
+          name: 0.3.3 for MC 1.18.2
+          version: 0.3.3+1.18.2
           version-type: release
           loaders: |
             fabric
@@ -118,8 +118,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.19/build/libs/!(*-@(dev|sources)).jar
           files-secondary: null
-          name: 0.3.2 for MC 1.19
-          version: 0.3.2+1.19
+          name: 0.3.3 for MC 1.19
+          version: 0.3.3+1.19
           version-type: release
           loaders: |
             fabric
@@ -139,8 +139,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           files-primary: toomanybinds-1.19.3/build/libs/!(*-@(dev|sources)).jar
           files-secondary: null
-          name: 0.3.2 for MC 1.19.3
-          version: 0.3.2+1.19.3
+          name: 0.3.3 for MC 1.19.3
+          version: 0.3.3+1.19.3
           version-type: release
           loaders: |
             fabric
