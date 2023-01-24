@@ -14,4 +14,8 @@ public class LauncherScreen116 extends LauncherScreen {
         children.add(textField);
     }
 
+    @Override
+    protected void setRepeatKeyboardEvents(boolean repeatEvents) {
+        client.keyboard.setRepeatEvents(repeatEvents);
+    }
 }

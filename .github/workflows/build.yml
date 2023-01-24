@@ -34,6 +34,9 @@ jobs:
       - name: Build 1.19 version
         run: ./gradlew :toomanybinds-1.19:build --stacktrace
 
+      - name: Build 1.19.3 version
+        run: ./gradlew :toomanybinds-1.19.3:build --stacktrace
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:

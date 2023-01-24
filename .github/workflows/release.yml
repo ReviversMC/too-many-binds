@@ -37,6 +37,9 @@ jobs:
       - name: Build 1.19 version
         run: ./gradlew :toomanybinds-1.19:build --stacktrace
 
+      - name: Build 1.19.3 version
+        run: ./gradlew :toomanybinds-1.19.3:build --stacktrace
+
       - name: Publish 1.16 version
         uses: Kir-Antipov/mc-publish@v3.2
         with:
@@ -113,6 +116,26 @@ jobs:
           files-primary: toomanybinds-1.19/build/libs/!(*-@(dev|sources)).jar
           name: 0.3.2 for MC 1.19
           version: 0.3.2+1.19
+          version-type: release
+          loaders: |
+            fabric
+          dependencies: |
+            fabric-api    | depends
+            cloth-config  | depends
+            amecs         | depends
+            modmenu       | recommends
+
+      - name: Publish 1.19.3 version
+        uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          modrinth-id: 548fsydf
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          curseforge-id: 412915
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          files-primary: toomanybinds-1.19.3/build/libs/!(*-@(dev|sources)).jar
+          name: 0.3.2 for MC 1.19.3
+          version: 0.3.2+1.19.3
           version-type: release
           loaders: |
             fabric
