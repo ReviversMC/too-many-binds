@@ -41,6 +41,14 @@ updates:
     directory: "/toomanybinds-1.19-compat"
     schedule:
       interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/toomanybinds-1.19.3"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/toomanybinds-1.19.3-compat"
+    schedule:
+      interval: "daily"
 
   - package-ecosystem: "github-actions"
     directory: "/"
