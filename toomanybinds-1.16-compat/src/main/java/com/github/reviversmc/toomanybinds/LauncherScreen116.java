@@ -15,11 +15,6 @@ public class LauncherScreen116 extends LauncherScreen {
     }
 
     @Override
-    protected void init() {
-        super.init(client, width, height);
-    }
-
-    @Override
     protected void setRepeatKeyboardEvents(boolean repeatEvents) {
         client.keyboard.setRepeatEvents(repeatEvents);
     }
