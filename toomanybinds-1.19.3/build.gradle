@@ -28,7 +28,7 @@ dependencies {
 
 	// Amecs API
 	modImplementation("de.siphalor:amecsapi-1.19:${project.amecs_api_version_1_19_3}")
-	// NMUK version that is compatible with latest Fabric API
+	// Nmuk version that is compatible with latest Fabric API
 	modImplementation("de.siphalor:nmuk-1.19:${project.nmuk_version_1_19_3}")
 
 	// ModMenu
