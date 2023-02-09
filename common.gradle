@@ -85,7 +85,3 @@ java {
 	// with development. Uncomment this line to generate them.
 	// withJavadocJar()
 }
-
-jar {
-	from "LICENSE"
-}
