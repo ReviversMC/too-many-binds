@@ -2,6 +2,7 @@ plugins {
 	id 'fabric-loom'
 	id 'io.github.juuxel.loom-quiltflower'
 	id "checkstyle"
+	id 'com.github.spotbugs'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -22,12 +23,12 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings_1_16}:v2"
 
 	// Required Fabric API modules
-	modImplementation(fabricApi.module("fabric-api-base", project.fabric_version_1_16))
-	modImplementation(fabricApi.module("fabric-lifecycle-events-v1", project.fabric_version_1_16))
-	modImplementation(fabricApi.module("fabric-key-binding-api-v1", project.fabric_version_1_16))
+	modImplementation fabricApi.module("fabric-api-base", project.fabric_api_version_1_16)
+	modImplementation fabricApi.module("fabric-lifecycle-events-v1", project.fabric_api_version_1_16)
+	modImplementation fabricApi.module("fabric-key-binding-api-v1", project.fabric_api_version_1_16)
 
 	// Amecs API
-	modRuntimeOnly("de.siphalor:amecsapi-1.16:${project.amecs_api_version_1_16}")
+	modRuntimeOnly "de.siphalor:amecsapi-1.16:${project.amecs_api_version_1_16}"
 
 	// ModMenu
 	modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version_1_16}"
@@ -45,7 +46,7 @@ dependencies {
 			}
 		}
 
-		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_version_1_16}"
+		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version_1_16}"
 		modRuntimeOnly "maven.modrinth:lazydfu:${project.lazydfu_version_1_16}"
 		modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version_1_16}"
 		modRuntimeOnly "maven.modrinth:lithium:${project.lithium_version_1_16}"

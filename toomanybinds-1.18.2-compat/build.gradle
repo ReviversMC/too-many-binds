@@ -2,6 +2,7 @@ plugins {
 	id 'fabric-loom'
 	id 'io.github.juuxel.loom-quiltflower'
 	id "checkstyle"
+	id 'com.github.spotbugs'
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -21,12 +22,12 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings_1_18_2}:v2"
 
 	// Required Fabric API modules
-	modImplementation(fabricApi.module("fabric-api-base", project.fabric_version_1_18_2))
-	modImplementation(fabricApi.module("fabric-lifecycle-events-v1", project.fabric_version_1_18_2))
-	modImplementation(fabricApi.module("fabric-key-binding-api-v1", project.fabric_version_1_18_2))
+	modImplementation fabricApi.module("fabric-api-base", project.fabric_api_version_1_18_2)
+	modImplementation fabricApi.module("fabric-lifecycle-events-v1", project.fabric_api_version_1_18_2)
+	modImplementation fabricApi.module("fabric-key-binding-api-v1", project.fabric_api_version_1_18_2)
 
 	// Amecs API
-	modImplementation("de.siphalor:amecsapi-1.18:${project.amecs_api_version_1_18_2}")
+	modImplementation "de.siphalor:amecsapi-1.18:${project.amecs_api_version_1_18_2}"
 
 	// ModMenu
 	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version_1_18_2}"

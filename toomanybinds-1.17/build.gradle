@@ -2,6 +2,7 @@ plugins {
 	id 'fabric-loom'
 	id 'io.github.juuxel.loom-quiltflower'
 	id "checkstyle"
+	id 'com.github.spotbugs'
 }
 
 sourceCompatibility = JavaVersion.VERSION_16
@@ -22,15 +23,14 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings_1_17}:v2"
 
 	// Required Fabric API modules
-	modImplementation(fabricApi.module("fabric-api-base", project.fabric_version_1_17))
-	modImplementation(fabricApi.module("fabric-lifecycle-events-v1", project.fabric_version_1_17))
-	modImplementation(fabricApi.module("fabric-key-binding-api-v1", project.fabric_version_1_17))
+	modImplementation fabricApi.module("fabric-api-base", project.fabric_api_version_1_17)
+	modImplementation fabricApi.module("fabric-lifecycle-events-v1", project.fabric_api_version_1_17)
+	modImplementation fabricApi.module("fabric-key-binding-api-v1", project.fabric_api_version_1_17)
 
 	// Amecs API
-	modImplementation("de.siphalor:amecsapi-1.17:${project.amecs_api_version_1_17}") {
-		// Exclude Nmuk because it causes a crash when clicking the "Key Binds" button
-		exclude(group: "de.siphalor", module: "nmuk-1.17")
-	}
+	modImplementation "de.siphalor:amecsapi-1.17:${project.amecs_api_version_1_17}"
+	// Nmuk version that is compatible with latest Fabric API
+	modImplementation "de.siphalor:nmuk-1.17:${project.nmuk_version_1_17}"
 
 	// ModMenu
 	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version_1_17}"
@@ -48,7 +48,7 @@ dependencies {
 			}
 		}
 
-		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_version_1_17}"
+		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version_1_17}"
 		modRuntimeOnly "maven.modrinth:lazydfu:${project.lazydfu_version_1_17}"
 		modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version_1_17}"
 		runtimeOnly "org.joml:joml:${project.joml_version_sodium_1_17}"

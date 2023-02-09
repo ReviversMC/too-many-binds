@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
 
-<!-- ReviversMC checkstyle v1.0 -->
+<!-- ReviversMC checkstyle v1.1 -->
 
 <module name="Checker">
 	<property name="charset" value="UTF-8"/>
@@ -116,7 +116,7 @@
 
 		<module name="Indentation">
 			<property name="basicOffset" value="8"/>
-			<property name="caseIndent" value="4"/>
+			<property name="caseIndent" value="8"/>
 			<property name="throwsIndent" value="8"/>
 			<property name="arrayInitIndent" value="8"/>
 			<property name="lineWrappingIndentation" value="16"/>
