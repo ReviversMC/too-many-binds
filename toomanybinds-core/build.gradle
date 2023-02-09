@@ -1,18 +1,5 @@
-plugins {
-	id 'fabric-loom'
-	id 'io.github.juuxel.loom-quiltflower'
-	id 'checkstyle'
-	id 'com.github.spotbugs'
-}
-
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
-
-
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-
-apply from: '../common.gradle'
 
 
 dependencies {

@@ -10,7 +10,6 @@ pluginManagement {
 	plugins {
 		id 'fabric-loom' version "${fabric_loom_version}"
 		id 'io.github.juuxel.loom-quiltflower' version "${loom_quiltflower_version}"
-		id 'com.github.spotbugs' version "${spotbugs_version}"
 	}
 }
 
