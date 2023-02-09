@@ -33,7 +33,7 @@ repositories {
 		}
 	}
 	maven {
-		name 'Siphalor's Maven'
+		name "Siphalor's Maven"
 		url 'https://maven.siphalor.de/'
 	}
 	maven {
