@@ -1,7 +1,7 @@
 plugins {
 	id 'fabric-loom'
 	id 'io.github.juuxel.loom-quiltflower'
-	id "checkstyle"
+	id 'checkstyle'
 	id 'com.github.spotbugs'
 }
 
@@ -17,15 +17,15 @@ apply from: '../common.gradle'
 
 
 dependencies {
-	include implementation(project(path: ":toomanybinds-1.18.2-compat", configuration: "namedElements"))
+	include implementation(project(path: ':toomanybinds-1.18.2-compat', configuration: 'namedElements'))
 
 	minecraft "com.mojang:minecraft:${project.minecraft_version_1_18_2}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings_1_18_2}:v2"
 
 	// Required Fabric API modules
-	modImplementation fabricApi.module("fabric-api-base", project.fabric_api_version_1_18_2)
-	modImplementation fabricApi.module("fabric-lifecycle-events-v1", project.fabric_api_version_1_18_2)
-	modImplementation fabricApi.module("fabric-key-binding-api-v1", project.fabric_api_version_1_18_2)
+	modImplementation fabricApi.module('fabric-api-base', project.fabric_api_version_1_18_2)
+	modImplementation fabricApi.module('fabric-lifecycle-events-v1', project.fabric_api_version_1_18_2)
+	modImplementation fabricApi.module('fabric-key-binding-api-v1', project.fabric_api_version_1_18_2)
 
 	// Amecs API
 	modImplementation "de.siphalor:amecsapi-1.18:${project.amecs_api_version_1_18_2}"
@@ -34,15 +34,15 @@ dependencies {
 	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version_1_18_2}"
 	// Cloth Config
 	modImplementation("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version_1_18_2}") {
-		exclude(group: "net.fabricmc.fabric-api")
+		exclude(group: 'net.fabricmc.fabric-api')
 	}
 
 
-	if (project.use_third_party_mods == "true") {
+	if (project.use_third_party_mods == 'true') {
 		configurations {
 			modRuntimeOnly {
-				exclude module: "fabric-lifecycle-events-v1"
-				exclude module: "fabric-key-binding-api-v1"
+				exclude module: 'fabric-lifecycle-events-v1'
+				exclude module: 'fabric-key-binding-api-v1'
 			}
 		}
 

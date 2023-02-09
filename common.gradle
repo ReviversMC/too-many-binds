@@ -2,7 +2,7 @@ group = project.maven_group as Object
 
 
 checkstyle {
-	configFile = rootProject.file("/checkstyle.xml")
+	configFile = rootProject.file('/checkstyle.xml')
 	toolVersion = project.checkstyle_version
 }
 
@@ -10,46 +10,46 @@ checkstyle {
 configurations {
 	modRuntimeOnly {
 		transitive = true
-		exclude module: "fabric-loader"
-		exclude module: "fabric-api-base"
+		exclude module: 'fabric-loader'
+		exclude module: 'fabric-api-base'
 	}
 }
 
 
 repositories {
-	if (project.use_third_party_mods == "true") {
+	if (project.use_third_party_mods == 'true') {
 		maven {
-			name = "Modrinth"
-			url = "https://api.modrinth.com/maven"
+			name = 'Modrinth'
+			url = 'https://api.modrinth.com/maven'
 			content {
-				includeGroup "maven.modrinth"
+				includeGroup 'maven.modrinth'
 			}
 		}
 		maven {
-			url = "https://cursemaven.com"
+			url = 'https://cursemaven.com'
 			content {
-				includeGroup "curse.maven"
+				includeGroup 'curse.maven'
 			}
 		}
 	}
 	maven {
-		name "Siphalor's Maven"
-		url "https://maven.siphalor.de/"
+		name 'Siphalor's Maven'
+		url 'https://maven.siphalor.de/'
 	}
 	maven {
-		name = "TerraformersMC"
-		url = "https://maven.terraformersmc.com/releases"
+		name = 'TerraformersMC'
+		url = 'https://maven.terraformersmc.com/releases'
 	}
 	maven {
-		url = "https://maven.shedaniel.me/"
+		url = 'https://maven.shedaniel.me/'
 	}
 	maven {
-		name = "JitPack"
-		url = "https://jitpack.io"
+		name = 'JitPack'
+		url = 'https://jitpack.io'
 	}
 	maven {
-		name = "NucleoidMC"
-		url = "https://maven.nucleoid.xyz/"
+		name = 'NucleoidMC'
+		url = 'https://maven.nucleoid.xyz/'
 	}
 	mavenCentral()
 }
@@ -61,10 +61,10 @@ dependencies {
 
 
 processResources {
-	inputs.property "version", project.version
+	inputs.property 'version', project.version
 
-	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+	filesMatching('fabric.mod.json') {
+		expand 'version': project.version
 	}
 }
 
@@ -73,7 +73,7 @@ tasks.withType(JavaCompile).configureEach {
 	// This fixes some edge cases with special characters not displaying correctly,
 	// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html.
 	// If Javadoc is generated, this must be specified in that task too.
-	it.options.encoding = "UTF-8"
+	it.options.encoding = 'UTF-8'
 }
 
 java {
