@@ -22,20 +22,8 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
 
-      - name: Build 1.16 version
-        run: ./gradlew :toomanybinds-1.16:build --stacktrace
-
-      - name: Build 1.17 version
-        run: ./gradlew :toomanybinds-1.17:build --stacktrace
-
-      - name: Build 1.18.2 version
-        run: ./gradlew :toomanybinds-1.18.2:build --stacktrace
-
-      - name: Build 1.19 version
-        run: ./gradlew :toomanybinds-1.19:build --stacktrace
-
-      - name: Build 1.19.3 version
-        run: ./gradlew :toomanybinds-1.19.3:build --stacktrace
+      - name: Build mod
+        run: ./gradlew build --stacktrace
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
