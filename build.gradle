@@ -10,7 +10,7 @@ subprojects {
 	apply plugin: 'checkstyle'
 
 	checkstyle {
-		configFile = rootProject.file('/checkstyle.xml')
+		configFile = file("${rootDir}/checkstyle.xml")
 		toolVersion = project.checkstyle_version
 	}
 
