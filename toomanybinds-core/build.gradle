@@ -2,6 +2,9 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 
+archivesBaseName += '-core'
+
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version_1_16}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings_1_16}:v2"

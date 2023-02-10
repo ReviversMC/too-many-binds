@@ -30,9 +30,7 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            **/build/libs
-            !**-compat/
-            !toomanybinds-core/
+            build/libs
       - name: Cleanup Gradle Cache
         run: |
           rm -f ~/.gradle/caches/modules-2/modules-2.lock

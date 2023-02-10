@@ -4,8 +4,12 @@
 	"version": "${version}",
 	"name": "Too Many Binds 1.18.2 Compat",
 	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.github.reviversmc.toomanybinds.EntrypointRegistrar1182"
+		]
+	},
 	"depends": {
-		"fabricloader": ">=0.12.9",
 		"toomanybinds-compat-1-17": "*"
 	},
 	"custom": {

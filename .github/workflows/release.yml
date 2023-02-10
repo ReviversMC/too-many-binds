@@ -28,114 +28,27 @@ jobs:
       - name: Build mod
         run: ./gradlew build --stacktrace
 
-      - name: Publish 1.16 version
+      - name: Publish mod
         uses: Kir-Antipov/mc-publish@v3.2
         with:
           modrinth-id: 548fsydf
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: 412915
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.16/build/libs/!(*-@(dev|sources)).jar
-          files-secondary: null
-          name: 0.3.3 for MC 1.16
-          version: 0.3.3+1.16
-          version-type: release
-          loaders: |
-            fabric
-          dependencies: |
-            fabric-api    | depends
-            cloth-config  | depends
-            amecs         | recommends
-            modmenu       | recommends
 
-      - name: Publish 1.17 version
-        uses: Kir-Antipov/mc-publish@v3.2
-        with:
-          modrinth-id: 548fsydf
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           curseforge-id: 412915
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.17/build/libs/!(*-@(dev|sources)).jar
-          files-secondary: null
-          name: 0.3.3 for MC 1.17 to 1.18.1
-          version: 0.3.3+1.17
-          version-type: release
-          loaders: |
-            fabric
-          game-versions: |
-            1.17
-            1.17.1
-            1.18
-            1.18.1
-          dependencies: |
-            fabric-api    | depends
-            cloth-config  | depends
-            amecs         | recommends
-            modmenu       | recommends
 
-      - name: Publish 1.18.2 version
-        uses: Kir-Antipov/mc-publish@v3.2
-        with:
-          modrinth-id: 548fsydf
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: 412915
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.18.2/build/libs/!(*-@(dev|sources)).jar
-          files-secondary: null
-          name: 0.3.3 for MC 1.18.2
-          version: 0.3.3+1.18.2
-          version-type: release
-          loaders: |
-            fabric
-          dependencies: |
-            fabric-api    | depends
-            cloth-config  | depends
-            amecs         | recommends
-            modmenu       | recommends
 
-      - name: Publish 1.19 version
-        uses: Kir-Antipov/mc-publish@v3.2
-        with:
-          modrinth-id: 548fsydf
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: 412915
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.19/build/libs/!(*-@(dev|sources)).jar
+          files-primary: build/libs/!(*-@(dev|sources)).jar
           files-secondary: null
-          name: 0.3.3 for MC 1.19
-          version: 0.3.3+1.19
-          version-type: release
-          loaders: |
-            fabric
-          game-versions: |
-            1.19
-            1.19.1
-            1.19.2
-          dependencies: |
-            fabric-api    | depends
-            cloth-config  | depends
-            amecs         | recommends
-            modmenu       | recommends
 
-      - name: Publish 1.19.3 version
-        uses: Kir-Antipov/mc-publish@v3.2
-        with:
-          modrinth-id: 548fsydf
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: 412915
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          files-primary: toomanybinds-1.19.3/build/libs/!(*-@(dev|sources)).jar
-          files-secondary: null
-          name: 0.3.3 for MC 1.19.3
-          version: 0.3.3+1.19.3
+          name: 0.3.3 for MC 1.16 to 1.19
+          version: 0.3.3+1.16-1.19.3
           version-type: release
+
           loaders: |
             fabric
+
           dependencies: |
             fabric-api    | depends
             cloth-config  | depends

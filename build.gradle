@@ -4,7 +4,8 @@ plugins {
 	id 'checkstyle'
 }
 
-subprojects {
+
+allprojects {
 	apply plugin: 'fabric-loom'
 	apply plugin: 'io.github.juuxel.loom-quiltflower'
 	apply plugin: 'checkstyle'
@@ -98,3 +99,22 @@ subprojects {
 	}
 }
 
+
+dependencies {
+	include project(path: ':toomanybinds-core', configuration: 'namedElements')
+	include project(path: ':toomanybinds-1.16-compat', configuration: 'namedElements')
+	include project(path: ':toomanybinds-1.17-compat', configuration: 'namedElements')
+	include project(path: ':toomanybinds-1.18.2-compat', configuration: 'namedElements')
+	include project(path: ':toomanybinds-1.19-compat', configuration: 'namedElements')
+	include project(path: ':toomanybinds-1.19.3-compat', configuration: 'namedElements')
+
+	minecraft "com.mojang:minecraft:${minecraft_version_1_19_3}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings_1_19_3}:v2"
+}
+
+
+processResources {
+	from("${rootDir}/assets/icon.png") {
+		into "assets/toomanybinds/"
+	}
+}

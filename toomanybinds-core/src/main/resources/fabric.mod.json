@@ -4,12 +4,16 @@
 	"version": "${version}",
 	"name": "Too Many Binds Core",
 	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.github.reviversmc.toomanybinds.EntrypointLauncher"
+		]
+	},
 	"mixins": [
 		"toomanybinds.mixins.json"
 	],
 	"depends": {
 		"minecraft": ">=1.16",
-		"fabricloader": ">=0.12.9",
 		"fabric-lifecycle-events-v1": "*",
 		"fabric-key-binding-api-v1": "*",
 		"cloth-config2": ">=4.12.41"
