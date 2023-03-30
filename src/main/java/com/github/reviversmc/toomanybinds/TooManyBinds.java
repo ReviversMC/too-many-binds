@@ -6,7 +6,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -14,7 +13,7 @@ import org.lwjgl.glfw.GLFW;
 import com.github.reviversmc.toomanybinds.autocompletion.LauncherCompletion;
 import com.github.reviversmc.toomanybinds.autocompletion.VanillaKeybindSuggestions;
 
-public   class TooManyBinds implements ModInitializer {
+public class TooManyBinds implements ModInitializer {
 	public static ModConfig config;
 	public static KeyBinding launcherKey;
 	public static KeyBinding favoriteKey;

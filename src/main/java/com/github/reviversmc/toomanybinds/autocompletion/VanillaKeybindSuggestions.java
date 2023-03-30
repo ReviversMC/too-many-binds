@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
 
 import com.github.reviversmc.toomanybinds.TooManyBinds;

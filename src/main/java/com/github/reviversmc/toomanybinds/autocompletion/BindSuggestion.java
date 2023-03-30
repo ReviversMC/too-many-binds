@@ -1,6 +1,5 @@
 package com.github.reviversmc.toomanybinds.autocompletion;
 
-
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
@@ -54,13 +53,17 @@ public class BindSuggestion {
 			bind.setPressed(false);
 
 			// Amecs compat
+
 			/*
+
 			if (FabricLoader.getInstance().isModLoaded("amecsapi")) {
 				AmecsIntegration.priorityPressIfApplicable(bind);
 			}
+
 			 */
 		}
 	}
+
 	public String getId() {
 		return bind.getTranslationKey();
 	}
