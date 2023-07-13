@@ -14,10 +14,3 @@ pluginManagement {
 }
 
 rootProject.name = 'toomanybinds'
-
-include 'toomanybinds-core'
-include 'toomanybinds-1.16-compat'
-include 'toomanybinds-1.17-compat'
-include 'toomanybinds-1.18.2-compat'
-include 'toomanybinds-1.19-compat'
-include 'toomanybinds-1.19.3-compat'

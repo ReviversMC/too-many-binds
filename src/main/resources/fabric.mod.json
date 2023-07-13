@@ -6,7 +6,8 @@
 	"description": "Solve the keybind problem, once and for all.",
 	"authors": [
 		"NebelNidas",
-		"dzwdz"
+		"dzwdz",
+		"thefirethirteen"
 	],
 	"contact": {
 		"sources": "https://github.com/ReviversMC/too-many-binds",
@@ -19,11 +20,16 @@
 	"entrypoints": {
 		"modmenu": [
 			"com.github.reviversmc.toomanybinds.integrations.ModMenuIntegration"
+		],
+		"main": [
+			"com.github.reviversmc.toomanybinds.TooManyBinds"
 		]
 	},
+	"mixins": [
+		"toomanybinds.mixins.json"
+	],
 	"depends": {
-		"minecraft": ">=1.16",
-		"fabricloader": ">=0.12.9",
-		"toomanybinds-compat-1-19-3": "*"
+		"minecraft": ">=1.19.4-rc.2",
+		"fabricloader": ">=0.12.9"
 	}
 }
