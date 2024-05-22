@@ -91,6 +91,7 @@ public class LauncherCompletion {
 		history.add(0, string);
 	}
 
+	@SuppressWarnings("resource")
 	private static File getFile(String suffix) {
 		return new File(MinecraftClient.getInstance().runDirectory, "toomanybinds_" + suffix + ".txt");
 	}

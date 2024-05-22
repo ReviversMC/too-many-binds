@@ -31,6 +31,8 @@ public class VanillaKeybindSuggestions implements SuggestionProvider {
 			"key.saveToolbarActivator",
 			"key.loadToolbarActivator"
 	));
+
+	@SuppressWarnings("resource")
 	public void addEntries(List<BindSuggestion> binds) {
 		for (KeyBinding bind : MinecraftClient.getInstance().options.allKeys) {
 			if ((bind.isUnbound() || !TooManyBinds.config.hideBoundKeys)
