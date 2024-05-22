@@ -69,7 +69,7 @@ dependencies {
 	modImplementation fabricApi.module('fabric-key-binding-api-v1', project.fabric_api_version)
 
 	// Other mods
-	modCompileOnly "de.siphalor:amecsapi-1.19:${project.amecs_api_version}"
+	modCompileOnly "de.siphalor:amecsapi-1.20:${project.amecs_api_version}"
 	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 
 	modImplementation("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
@@ -88,17 +88,16 @@ dependencies {
 		}
 
 		// Comment out the following line to check vanilla compatibility
-		modRuntimeOnly "de.siphalor:amecsapi-1.19:${project.amecs_api_version}"
+		modRuntimeOnly "de.siphalor:amecsapi-1.20:${project.amecs_api_version}"
 
 		// Use full Fabric API bundle while debugging, since transitive deps aren't always declared correctly
 		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 		modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version}"
 		modRuntimeOnly "maven.modrinth:lithium:${project.lithium_version}"
-		modRuntimeOnly "maven.modrinth:starlight:${project.starlight_version}"
 		modRuntimeOnly "maven.modrinth:ferrite-core:${project.ferritecore_version}"
-		modRuntimeOnly "curse.maven:smooth-boot-415758:${project.smoothboot_version}"
-		modRuntimeOnly "curse.maven:no-fade-452768:${project.no_fade_version}"
+		modRuntimeOnly "maven.modrinth:threadtweak:${project.threadtweak_version}"
+		modRuntimeOnly "maven.modrinth:fadeless:${project.fadeless_version}"
 	}
 }
 
