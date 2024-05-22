@@ -39,8 +39,7 @@ jobs:
 
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-          files-primary: build/libs/!(*-@(dev|sources)).jar
-          files-secondary: null
+          files: build/libs/!(*-@(dev|sources)).jar
 
           name: 0.3.3 for MC 1.19.4
           version: 0.3.3+1.19.4
