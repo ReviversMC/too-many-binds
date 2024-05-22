@@ -9,15 +9,8 @@ pluginManagement {
 	}
 	plugins {
 		id 'fabric-loom' version "${fabric_loom_version}"
-		id 'io.github.juuxel.loom-quiltflower' version "${loom_quiltflower_version}"
+		id 'com.diffplug.spotless' version "${spotless_version}"
 	}
 }
 
 rootProject.name = 'toomanybinds'
-
-include 'toomanybinds-core'
-include 'toomanybinds-1.16-compat'
-include 'toomanybinds-1.17-compat'
-include 'toomanybinds-1.18.2-compat'
-include 'toomanybinds-1.19-compat'
-include 'toomanybinds-1.19.3-compat'
