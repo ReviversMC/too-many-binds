@@ -41,16 +41,19 @@ jobs:
 
           files: build/libs/!(*-@(dev|sources)).jar
 
-          name: 0.3.4 for MC 1.20 and 1.20.1
-          version: 0.3.4+1.20
+          name: 0.3.4 for MC 1.20.2+
+          version: 0.3.4+1.20.2
           version-type: release
 
           loaders: |
             fabric
 
           game-versions: |
-            1.20
-            1.20.1
+            1.20.2
+            1.20.3
+            1.20.4
+            1.20.5
+            1.20.6
 
           dependencies: |
             fabric-api    | depends

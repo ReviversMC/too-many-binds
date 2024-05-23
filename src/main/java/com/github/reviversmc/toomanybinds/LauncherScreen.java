@@ -88,6 +88,11 @@ public class LauncherScreen extends Screen {
 		super.render(context, mouseX, mouseY, delta);
 	}
 
+	@Override
+	public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
+		// Don't darken the background
+	}
+
 	public void switchSelection(int by) {
 		int totalCompletions = completion.getSuggestions().size();
 
@@ -153,11 +158,6 @@ public class LauncherScreen extends Screen {
 		textField.setText(text);
 		addSelectableChild(textField);
 		setInitialFocus(textField);
-	}
-
-	@Override
-	public void tick() {
-		textField.tick();
 	}
 
 	@Override
