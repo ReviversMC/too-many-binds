@@ -166,6 +166,11 @@ public class LauncherScreen extends Screen {
 	}
 
 	@Override
+	public boolean shouldPause() {
+		return TooManyBinds.config.pauseGameWhileOpen;
+	}
+
+	@Override
 	public void removed() {
 		TooManyBinds.config.launcherX = offsetX;
 		TooManyBinds.config.launcherY = offsetY;
