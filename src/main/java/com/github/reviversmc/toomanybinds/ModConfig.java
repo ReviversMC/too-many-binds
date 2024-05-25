@@ -15,4 +15,5 @@ public class ModConfig implements ConfigData {
 	public double launcherY = 0;
 
 	public double bgOpacity = 0.7;
+	public boolean pauseGameWhileOpen = false;
 }
