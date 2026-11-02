@@ -11,14 +11,10 @@ import net.minecraft.client.option.KeyBinding;
 import com.github.reviversmc.toomanybinds.TooManyBinds;
 
 public class VanillaKeybindSuggestions implements SuggestionProvider {
-	private static final Set<String> blacklist = new HashSet<String>(Arrays.asList(
-			// pointless
-			"key.use",
-			"key.toomanybinds.launcher",
-			"key.toomanybinds.favorite",
-
-			// don't work
-			"key.attack",
+	// These keybinds either require other keybinds to be pressed (meaning that they don't work in a launcher screen),
+	// or are already handled in different ways.
+	public static Set<String> blacklist = new HashSet<>(Arrays.asList(
+			// movement ; handled in better ways
 			"key.forward",
 			"key.left",
 			"key.right",
@@ -36,7 +32,7 @@ public class VanillaKeybindSuggestions implements SuggestionProvider {
 	public void addEntries(List<BindSuggestion> binds) {
 		for (KeyBinding bind : MinecraftClient.getInstance().options.allKeys) {
 			if ((bind.isUnbound() || !TooManyBinds.config.hideBoundKeys)
-					&& !blacklist.contains(bind.getTranslationKey())) {
+					&& !blacklist.contains(bind.getId())) {
 				binds.add(new BindSuggestion(bind));
 			}
 		}
