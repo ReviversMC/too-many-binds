@@ -21,8 +21,8 @@ public class BindSuggestion {
 
 	public BindSuggestion(KeyBinding bind) {
 		this.bind = bind;
-		name = Text.translatable(bind.getTranslationKey());
-		category = Text.translatable(bind.getCategory());
+		name = Text.translatable(bind.getId());
+		category = bind.getCategory().getLabel();
 		searchable = (name.getString() + " " + category.getString()).toLowerCase();
 	}
 
@@ -64,6 +64,6 @@ public class BindSuggestion {
 	}
 
 	public String getId() {
-		return bind.getTranslationKey();
+		return bind.getId();
 	}
 }
